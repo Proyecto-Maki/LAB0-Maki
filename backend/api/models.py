@@ -35,6 +35,18 @@ class Departamento(models.Model):
         return self.nombre_departamento
     
 
+class Municipio(models.Model):
+    id_municipio = models.AutoField(primary_key=True)
+    nombre_municipio = models.CharField(max_length=50)
+    id_departamento = models.ForeignKey(Departamento, on_delete=models.CASCADE)
+    id_alcalde = models.ForeignKey(Persona, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.nombre_municipio
+
+
+    
+
 
 
     
