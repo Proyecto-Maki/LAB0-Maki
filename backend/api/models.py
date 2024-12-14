@@ -45,7 +45,15 @@ class Municipio(models.Model):
         return self.nombre_municipio
 
 
-    
+class Vivienda(models.Model):
+    id_vivienda = models.AutoField(primary_key=True)
+    direccion_vivienda = models.CharField(max_length=100)
+    estrato_vivienda = models.IntegerField()
+    id_municipio = models.ForeignKey(Municipio, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.direccion_vivienda
+
 
 
 
