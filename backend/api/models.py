@@ -3,6 +3,14 @@ from django.contrib.auth.models import User
 
 
 # Create your models here.
+
+class Region(models.Model):
+    id_region = models.AutoField(primary_key=True)
+    nombre_region = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.nombre_region
+
 class Persona(models.Model):
     id_persona = models.CharField(max_length=10, primary_key=True)
     nombre_1_persona = models.CharField(max_length=50)
@@ -16,7 +24,7 @@ class Persona(models.Model):
     id_cabeza_familia = models.ForeignKey(
         'self', on_delete=models.SET_NULL, blank=True, null=True, related_name='miembros_familia')
     def __str__(self):
-        return f"CC: {self.id_persona} {self.nombre_1_persona} {self.apellido_1_persona}"
+        return f"{self.id_persona} {self.nombre_1_persona} {self.apellido_1_persona}"
     
 
     
