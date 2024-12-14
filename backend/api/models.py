@@ -65,7 +65,19 @@ class Mascota(models.Model):
     def __str__(self):
         return self.nombre_mascota
     
+class PersonaResideVivienda(models.Model):
+    id_persona = models.ForeignKey(Persona, on_delete=models.CASCADE)
+    id_vivienda = models.ForeignKey(Vivienda, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return f"{self.id_persona} {self.id_vivienda}"
+    
+class PersonaPoseeVivienda(models.Model):
+    id_persona = models.ForeignKey(Persona, on_delete=models.CASCADE)
+    id_vivienda = models.ForeignKey(Vivienda, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.id_persona} {self.id_vivienda}"
 
     
 
