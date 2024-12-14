@@ -125,6 +125,7 @@ function Personas() {
                     <select id="genero_persona" value={genero_persona} onChange={(e) => set_genero_persona(e.target.value)}>
                         <option value="M">Masculino</option>
                         <option value="F">Femenino</option>
+                        <option value="O">Otro</option>
                     </select>
                     <br />
                     <label htmlFor="telefono_persona">Teléfono</label>
