@@ -55,6 +55,16 @@ class Vivienda(models.Model):
         return self.direccion_vivienda
 
 
+class Mascota(models.Model):
+    id_mascota = models.AutoField(primary_key=True)
+    nombre_mascota = models.CharField(max_length=50)
+    especie_mascota = models.CharField(max_length=50)
+    raza_mascota = models.CharField(max_length=50)
+    id_vivienda = models.ForeignKey(Vivienda, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.nombre_mascota
+    
 
 
     
