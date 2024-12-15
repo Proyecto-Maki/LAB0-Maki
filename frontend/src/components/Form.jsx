@@ -17,6 +17,8 @@ function Form({route, method}){
         setLoading(true);
         e.preventDefault();
 
+        console.log("Submitting to route:", route);
+
         try {
             const res = await api.post(route, {username, password});
             if (method === "login") {
@@ -26,8 +28,21 @@ function Form({route, method}){
             } else {
                 navigate('/login');
             }
-        } catch (err) {
-            alert(err)
+        } catch (error) {
+            console.error("Error during submission:", error); // Log the error for debugging
+            if (error.response) {
+                // The request was made and the server responded with a status code
+                // that falls out of the range of 2xx
+                console.error("Response data:", error.response.data);
+                console.error("Response status:", error.response.status);
+                console.error("Response headers:", error.response.headers);
+            } else if (error.request) {
+                // The request was made but no response was received
+                console.error("Request data:", error.request);
+            } else {
+                // Something happened in setting up the request that triggered an Error
+                console.error("Error message:", error.message);
+            }
         } finally {
             setLoading(false);
         }
@@ -41,14 +56,14 @@ function Form({route, method}){
                 type='text'
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                placeholder='Username'
+                placeholder='Usuario'
             />
             <input 
                 className='form-input'
                 type='password'
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                placeholder='Password'
+                placeholder='Contraseña'
             />   
             <button className='form-button' type='submit'>{metodo}</button>
         </form>

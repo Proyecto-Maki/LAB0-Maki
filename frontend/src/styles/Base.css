@@ -34,14 +34,17 @@ body{
 }
 
 .container-form{
-    background-color: #f0f0f0;
+    background: radial-gradient(circle at top left,transparent 25%,#f4f4f4 25.5%, #f4f4f4 36%, transparent 37%, transparent 100%),radial-gradient(circle at bottom right,transparent 34%,#f4f4f4 34.5%, #f4f4f4 45.5%, transparent 46%, transparent 100%);
+        background-size: 3em 3em;
+        background-color: #ffffff;
+        opacity: 1;
     margin: 0;
     padding: 0;
     width: 50vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
-
+    align-items: center
 }
 
 .container-title-til{
