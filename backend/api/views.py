@@ -5,10 +5,10 @@ from django.shortcuts import render
 from django.contrib.auth.models import User
 from rest_framework import generics
 from rest_framework.exceptions import ValidationError
-from .serializers import UserSerializer, PersonaSerializer, RegionSerializer, DepartamentoSerializer, MunicipioSerializer, ViviendaSerializer, MascotaSerializer, PersonaResideViviendaSerializer, PersonaPoseeViviendaSerializer
+from .serializers import UserSerializer, PersonaSerializer, RegionSerializer, DepartamentoSerializer, MunicipioSerializer, ViviendaSerializer, MascotaSerializer, PersonaResideViviendaSerializer
 from rest_framework.exceptions import ValidationError
 from rest_framework.permissions import IsAuthenticated, AllowAny
-from .models import Persona, Region, Departamento, Municipio, Vivienda, Mascota, PersonaResideVivienda, PersonaPoseeVivienda
+from .models import Persona, Region, Departamento, Municipio, Vivienda, Mascota, PersonaResideVivienda
 
 # Create your views here.
 
@@ -276,33 +276,33 @@ class PersonaResideViviendaUpdate(generics.UpdateAPIView):
 
 
 ## Vista de PERSONA POSEE VIVIENDA
-class PersonaPoseeViviendaListCreate(generics.ListCreateAPIView):
-    serializer_class = PersonaPoseeViviendaSerializer
-    permission_classes = [AllowAny]
+# class PersonaPoseeViviendaListCreate(generics.ListCreateAPIView):
+#     serializer_class = PersonaPoseeViviendaSerializer
+#     permission_classes = [AllowAny]
 
-    def get_queryset(self):
-        return PersonaPoseeVivienda.objects.all()
+#     def get_queryset(self):
+#         return PersonaPoseeVivienda.objects.all()
     
-    def perform_create(self, serializer):
-        serializer.save()
+#     def perform_create(self, serializer):
+#         serializer.save()
 
-class PersonaPoseeViviendaDelete(generics.DestroyAPIView):
-    serializer_class = PersonaPoseeViviendaSerializer
-    permission_classes = [AllowAny]
-    def get_queryset(self):
-        return PersonaPoseeVivienda.objects.all()
+# class PersonaPoseeViviendaDelete(generics.DestroyAPIView):
+#     serializer_class = PersonaPoseeViviendaSerializer
+#     permission_classes = [AllowAny]
+#     def get_queryset(self):
+#         return PersonaPoseeVivienda.objects.all()
     
-    def perform_destroy(self, instance):
-        instance.delete()
+#     def perform_destroy(self, instance):
+#         instance.delete()
 
-class PersonaPoseeViviendaUpdate(generics.UpdateAPIView):
-    serializer_class = PersonaPoseeViviendaSerializer
-    permission_classes = [AllowAny]
-    def get_queryset(self):
-        return PersonaPoseeVivienda.objects.all()
+# class PersonaPoseeViviendaUpdate(generics.UpdateAPIView):
+#     serializer_class = PersonaPoseeViviendaSerializer
+#     permission_classes = [AllowAny]
+#     def get_queryset(self):
+#         return PersonaPoseeVivienda.objects.all()
     
-    def perform_update(self, serializer):
-        serializer.save()
+#     def perform_update(self, serializer):
+#         serializer.save()
 
 
 
