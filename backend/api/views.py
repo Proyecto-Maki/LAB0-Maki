@@ -5,21 +5,20 @@ from django.shortcuts import render
 from django.contrib.auth.models import User
 from rest_framework import generics
 from rest_framework.exceptions import ValidationError
-from .serializers import UserSerializer, PersonaSerializer
+from .serializers import UserSerializer, PersonaSerializer, RegionSerializer, DepartamentoSerializer, MunicipioSerializer, ViviendaSerializer, MascotaSerializer, PersonaResideViviendaSerializer, 
 from rest_framework.exceptions import ValidationError
 from rest_framework.permissions import IsAuthenticated, AllowAny
-from .models import Persona
+from .models import Persona, Region, Departamento, Municipio, Vivienda, Mascota, PersonaResideVivienda, 
 
 # Create your views here.
 
+## Vista de PERSONA
 class PersonaListCreate(generics.ListCreateAPIView):
     serializer_class = PersonaSerializer
     permission_classes = [AllowAny]
 
     def get_queryset(self):
         return Persona.objects.all()
-    
-    
     
     def validar_edad(self, fecha_nacimiento):
         # Verificar que la persona sea mayor de edad
@@ -99,7 +98,33 @@ class PersonaUpdate(generics.UpdateAPIView):
         serializer.save()
 
 
+## Vista de REGION
+class RegionListCreate(generics.ListCreateAPIView):
+    serializer_class = RegionSerializer
+    permission_classes = [AllowAny]
 
+    def get_queryset(self):
+        return Region.objects.all()
+
+## Vista de DEPARTAMENTO
+
+## Vista de MUNICIPIO
+
+## Vista de VIVIENDA
+
+## Vista de MASCOTA
+
+## Vista de PERSONA RESIDE VIVIENDA
+
+## Vista de VIVIENDA RESIDE MUNICIPIO
+
+
+
+
+
+
+
+## Crear USUARIO
 class CreateUserView(generics.CreateAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer

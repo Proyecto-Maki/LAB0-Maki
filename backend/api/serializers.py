@@ -57,8 +57,8 @@ class PersonaResideViviendaSerializer(serializers.ModelSerializer):
         model = Persona
         fields = ["id_persona", "id_vivienda"]
 
-class ViviendaResideMunicipioSerializer(serializers.ModelSerializer):
+class PersonaPoseeViviendaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Vivienda
-        fields = ["id_vivienda", "id_municipio"]
+        fields = ["id_vivienda", "id_persona"]
     
