@@ -5,10 +5,10 @@ from django.shortcuts import render
 from django.contrib.auth.models import User
 from rest_framework import generics
 from rest_framework.exceptions import ValidationError
-from .serializers import UserSerializer, PersonaSerializer, RegionSerializer, DepartamentoSerializer, MunicipioSerializer, ViviendaSerializer, MascotaSerializer, PersonaResideViviendaSerializer, 
+from .serializers import UserSerializer, PersonaSerializer, RegionSerializer, DepartamentoSerializer, MunicipioSerializer, ViviendaSerializer, MascotaSerializer, PersonaResideViviendaSerializer, PersonaPoseeViviendaSerializer
 from rest_framework.exceptions import ValidationError
 from rest_framework.permissions import IsAuthenticated, AllowAny
-from .models import Persona, Region, Departamento, Municipio, Vivienda, Mascota, PersonaResideVivienda, 
+from .models import Persona, Region, Departamento, Municipio, Vivienda, Mascota, PersonaResideVivienda, PersonaPoseeVivienda
 
 # Create your views here.
 
@@ -105,21 +105,204 @@ class RegionListCreate(generics.ListCreateAPIView):
 
     def get_queryset(self):
         return Region.objects.all()
+    
+    def perform_create(self, serializer):
+        serializer.save()
+
+class RegionDelete(generics.DestroyAPIView):
+    serializer_class = RegionSerializer
+    permission_classes = [AllowAny]
+    def get_queryset(self):
+        return Region.objects.all()
+    
+    def perform_destroy(self, instance):
+        instance.delete()
+
+class RegionUpdate(generics.UpdateAPIView):
+    serializer_class = RegionSerializer
+    permission_classes = [AllowAny]
+    def get_queryset(self):
+        return Region.objects.all()
+    
+    def perform_update(self, serializer):
+        serializer.save()
 
 ## Vista de DEPARTAMENTO
+class DepartamentoListCreate(generics.ListCreateAPIView):
+    serializer_class = DepartamentoSerializer
+    permission_classes = [AllowAny]
+
+    def get_queryset(self):
+        return Departamento.objects.all()
+    
+    def perform_create(self, serializer):
+        serializer.save()
+
+class DepartamentoDelete(generics.DestroyAPIView):
+    serializer_class = DepartamentoSerializer
+    permission_classes = [AllowAny]
+    def get_queryset(self):
+        return Departamento.objects.all()
+    
+    def perform_destroy(self, instance):
+        instance.delete()
+
+class DepartamentoUpdate(generics.UpdateAPIView):
+    serializer_class = DepartamentoSerializer
+    permission_classes = [AllowAny]
+    def get_queryset(self):
+        return Departamento.objects.all()
+    
+    def perform_update(self, serializer):
+        serializer.save()
+
 
 ## Vista de MUNICIPIO
+class MunicipioListCreate(generics.ListCreateAPIView):
+    serializer_class = MunicipioSerializer
+    permission_classes = [AllowAny]
+
+    def get_queryset(self):
+        return Municipio.objects.all()
+    
+    def perform_create(self, serializer):
+        serializer.save()
+
+class MunicipioDelete(generics.DestroyAPIView):
+    serializer_class = MunicipioSerializer
+    permission_classes = [AllowAny]
+    def get_queryset(self):
+        return Municipio.objects.all()
+    
+    def perform_destroy(self, instance):
+        instance.delete()
+
+class MunicipioUpdate(generics.UpdateAPIView):
+    serializer_class = MunicipioSerializer
+    permission_classes = [AllowAny]
+    def get_queryset(self):
+        return Municipio.objects.all()
+    
+    def perform_update(self, serializer):
+        serializer.save()
 
 ## Vista de VIVIENDA
+class ViviendaListCreate(generics.ListCreateAPIView):
+    serializer_class = ViviendaSerializer
+    permission_classes = [AllowAny]
+
+    def get_queryset(self):
+        return Vivienda.objects.all()
+    
+    def perform_create(self, serializer):
+        serializer.save()
+
+class ViviendaDelete(generics.DestroyAPIView):
+    serializer_class = ViviendaSerializer
+    permission_classes = [AllowAny]
+    def get_queryset(self):
+        return Vivienda.objects.all()
+    
+    def perform_destroy(self, instance):
+        instance.delete()
+
+class ViviendaUpdate(generics.UpdateAPIView):
+    serializer_class = ViviendaSerializer
+    permission_classes = [AllowAny]
+    def get_queryset(self):
+        return Vivienda.objects.all()
+    
+    def perform_update(self, serializer):
+        serializer.save()
 
 ## Vista de MASCOTA
+class MascotaListCreate(generics.ListCreateAPIView):
+    serializer_class = MascotaSerializer
+    permission_classes = [AllowAny]
+
+    def get_queryset(self):
+        return Mascota.objects.all()
+    
+    def perform_create(self, serializer):
+        serializer.save()
+
+class MascotaDelete(generics.DestroyAPIView):
+    serializer_class = MascotaSerializer
+    permission_classes = [AllowAny]
+    def get_queryset(self):
+        return Mascota.objects.all()
+    
+    def perform_destroy(self, instance):
+        instance.delete()
+
+class MascotaUpdate(generics.UpdateAPIView):
+    serializer_class = MascotaSerializer
+    permission_classes = [AllowAny]
+    def get_queryset(self):
+        return Mascota.objects.all()
+    
+    def perform_update(self, serializer):
+        serializer.save()
+
 
 ## Vista de PERSONA RESIDE VIVIENDA
+class PersonaResideViviendaListCreate(generics.ListCreateAPIView):
+    serializer_class = PersonaResideViviendaSerializer
+    permission_classes = [AllowAny]
 
-## Vista de VIVIENDA RESIDE MUNICIPIO
+    def get_queryset(self):
+        return PersonaResideVivienda.objects.all()
+    
+    def perform_create(self, serializer):
+        serializer.save()
+
+class PersonaResideViviendaDelete(generics.DestroyAPIView):
+    serializer_class = PersonaResideViviendaSerializer
+    permission_classes = [AllowAny]
+    def get_queryset(self):
+        return PersonaResideVivienda.objects.all()
+    
+    def perform_destroy(self, instance):
+        instance.delete()
+
+class PersonaResideViviendaUpdate(generics.UpdateAPIView):
+    serializer_class = PersonaResideViviendaSerializer
+    permission_classes = [AllowAny]
+    def get_queryset(self):
+        return PersonaResideVivienda.objects.all()
+    
+    def perform_update(self, serializer):
+        serializer.save()
 
 
+## Vista de PERSONA POSEE VIVIENDA
+class PersonaPoseeViviendaListCreate(generics.ListCreateAPIView):
+    serializer_class = PersonaPoseeViviendaSerializer
+    permission_classes = [AllowAny]
 
+    def get_queryset(self):
+        return PersonaPoseeVivienda.objects.all()
+    
+    def perform_create(self, serializer):
+        serializer.save()
+
+class PersonaPoseeViviendaDelete(generics.DestroyAPIView):
+    serializer_class = PersonaPoseeViviendaSerializer
+    permission_classes = [AllowAny]
+    def get_queryset(self):
+        return PersonaPoseeVivienda.objects.all()
+    
+    def perform_destroy(self, instance):
+        instance.delete()
+
+class PersonaPoseeViviendaUpdate(generics.UpdateAPIView):
+    serializer_class = PersonaPoseeViviendaSerializer
+    permission_classes = [AllowAny]
+    def get_queryset(self):
+        return PersonaPoseeVivienda.objects.all()
+    
+    def perform_update(self, serializer):
+        serializer.save()
 
 
 
