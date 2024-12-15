@@ -89,6 +89,16 @@ class PersonaDelete(generics.DestroyAPIView):
     def perform_destroy(self, instance):
         instance.delete()
 
+class PersonaUpdate(generics.UpdateAPIView):
+    serializer_class = PersonaSerializer
+    permission_classes = [AllowAny]
+    def get_queryset(self):
+        return Persona.objects.all()
+    
+    def perform_update(self, serializer):
+        serializer.save()
+
+
 
 class CreateUserView(generics.CreateAPIView):
     queryset = User.objects.all()
