@@ -43,6 +43,16 @@ function PersonaForm({ get_personas, get_mayores_edad }) {
                     alert("Error al crear la persona");
                 }
                 get_personas();
+                set_id_persona("");
+                set_nombre_1_persona("");
+                set_nombre_2_persona("");
+                set_apellido_1_persona("");
+                set_apellido_2_persona("");
+                set_fecha_nacimiento("");
+                set_genero_persona("M");
+                set_telefono_persona("");
+                set_correo_persona("");
+                set_id_cabeza_familia("");
             })
             .catch((err) => {
                 console.log(err.response.data);

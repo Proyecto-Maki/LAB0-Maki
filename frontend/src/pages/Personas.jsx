@@ -98,7 +98,7 @@ function Personas() {
                 </div>
             </div>
             
-            <div>
+            <div className="personas-list">
                 {personas.map((persona) =>
                     <Persona persona={persona} deletePersona={delete_persona} key={persona.id_persona} />
                 )}
