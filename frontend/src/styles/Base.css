@@ -9,9 +9,16 @@ body{
     height: 100vh;
     margin: 0;
     display: flex;
-    justify-content: space-around;
 }
 
 .container-title{
     background-color: aquamarine;
+    width: 50vw;
+    background: url('../img/login.jpg');
+    height: 100vh;
+}
+
+.container-form{
+    background-color: #f0f0f0;
+    width: 50vw;
 }
