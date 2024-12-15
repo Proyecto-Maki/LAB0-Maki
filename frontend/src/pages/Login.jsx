@@ -1,5 +1,5 @@
 import Form from '../components/Form'
-import '../styles/Base.css'
+import '../styles/BaseLogReg.css'
 import { useNavigate } from 'react-router-dom';
 //import 'bootstrap/dist/css/bootstrap.min.css';
 
