@@ -1,8 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&display=swap');
+
+
 body{
     margin: 0;
     padding: 0;
     background-color: #ffffff;
-    font-family: 'Verdana', sans-serif;
+    font-family: "Baloo 2", sans-serif;
+}
+
+* {
+    font-family: inherit;
 }
 
 .container{
@@ -31,12 +38,47 @@ body{
     margin: 0;
     padding: 0;
     width: 50vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
 }
 
 .container-title-til{
-    font-size: 5em;
+    font-size: 7em;
     font-weight: 700;
     color: #ffffff;
     text-align: center;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.container-title-sub-1{
+    font-size: 2em;
+    font-weight: 600;
+    color: #ffffff;
+    text-align: center;
+    text-shadow: 2px 2px 4px #000000;
+}
+.container-title-sub-2{
+    font-size: 1.5em;
+    font-weight: 400;
+    color: #ffffff;
+    text-align: center;
+    text-shadow: 2px 2px 4px #000000;
+    padding: 0.5em;
+}
+
+.container-title-button{
+    margin: 0 auto;
+    padding: 0;
+    width: 20%;
+    height: 5%;
+    background-color: #142601;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #ffffff;
+    cursor: pointer;
+    transition: 0.3s;
 }
