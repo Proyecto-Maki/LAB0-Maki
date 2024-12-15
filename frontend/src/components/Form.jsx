@@ -6,6 +6,7 @@ import '../styles/Form.css';
 
 
 function Form({route, method}){
+
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [loading, setLoading] = useState(false);
@@ -13,11 +14,35 @@ function Form({route, method}){
 
     const metodo = method === "login" ? "Login" : "Register";
 
+
+    const validatePassword = (password) => {
+        const isValidLength = password.length >= 8;
+        const isAlphanumeric = /^[a-zA-Z0-9]+$/.test(password);
+        return isValidLength && isAlphanumeric;
+    }
+
+    const validateUsername = (username) => {
+        const isValidLength = username.length >= 3;
+        const startsWithLetter = /^[a-zA-Z]/.test(username);
+        return isValidLength && startsWithLetter;
+    }
+
     const handleSubmit = async (e) => {
         setLoading(true);
         e.preventDefault();
 
         console.log("Submitting to route:", route);
+
+        if (!validateUsername(username)) {
+            alert('El nombre de usuario debe tener más de 8 caracteres y comenzar con una letra.');
+            setLoading(false);
+            return;
+        }
+        if (!validatePassword(password)) {
+            alert('La contraseña debe tener más de 8 caracteres y ser alfanumérica.');
+            setLoading(false);
+            return;
+        }
 
         try {
             const res = await api.post(route, {username, password});
