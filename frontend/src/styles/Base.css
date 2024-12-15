@@ -78,10 +78,14 @@ body{
     height: 5%;
     background-color: #142601;
     border: none;
-    border-radius: 10px;
+    border-radius: 4px;
     font-size: 1.5em;
     font-weight: 600;
     color: #ffffff;
     cursor: pointer;
     transition: 0.3s;
+}
+
+.container-title-button:hover{
+    background-color: #274001;
 }
