@@ -50,6 +50,7 @@ class Vivienda(models.Model):
     direccion_vivienda = models.CharField(max_length=100)
     estrato_vivienda = models.IntegerField()
     id_municipio = models.ForeignKey(Municipio, on_delete=models.CASCADE)
+    id_persona = models.ForeignKey(Persona, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.direccion_vivienda
@@ -72,12 +73,6 @@ class PersonaResideVivienda(models.Model):
     def __str__(self):
         return f"{self.id_persona} {self.id_vivienda}"
     
-class PersonaPoseeVivienda(models.Model):
-    id_persona = models.ForeignKey(Persona, on_delete=models.CASCADE)
-    id_vivienda = models.ForeignKey(Vivienda, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return f"{self.id_persona} {self.id_vivienda}"
 
     
 
