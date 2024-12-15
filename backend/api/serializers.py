@@ -44,7 +44,7 @@ class MunicipioSerializer(serializers.ModelSerializer):
 class ViviendaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Vivienda
-        fields = ["id_vivienda", "direccion_vivienda", "estrato_vivienda", "id_municipio"]
+        fields = ["id_vivienda", "direccion_vivienda", "estrato_vivienda", "id_municipio", "id_persona"]
 
 
 class MascotaSerializer(serializers.ModelSerializer):
@@ -57,8 +57,5 @@ class PersonaResideViviendaSerializer(serializers.ModelSerializer):
         model = Persona
         fields = ["id_persona", "id_vivienda"]
 
-class PersonaPoseeViviendaSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Vivienda
-        fields = ["id_vivienda", "id_persona"]
+
     
