@@ -15,7 +15,7 @@
   }
   
   .logo-img {
-    width: 90px;  /* Ajusta el tamaño del logo */
+    width: 220px;  /* Ajusta el tamaño del logo */
     height: auto;
   }
   
@@ -57,4 +57,3 @@
       width: 100px;  /* Reduce el tamaño del logo en pantallas pequeñas */
     }
   }
-  
