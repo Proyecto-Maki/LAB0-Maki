@@ -1,5 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from "react";
+import {FaMapMarkedAlt} from 'react-icons/fa';
+
 
 function Region({region, deleteRegion}){
     const [isEditarOpen, setIsEditarOpen] = useState(false);
