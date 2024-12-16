@@ -9,8 +9,8 @@ class Persona(models.Model):
     nombre_2_persona = models.CharField(max_length=50, blank=True, null=True)
     apellido_1_persona = models.CharField(max_length=50)
     apellido_2_persona = models.CharField(max_length=50, blank=True, null=True)
-    fecha_nacimiento = models.DateField()
-    genero_persona = models.CharField(max_length=1, choices=[('M', 'Masculino'), ('F', 'Femenino'), ('O', 'Otro')])
+    fecha_nacimiento = models.DateField(null=False)
+    genero_persona = models.CharField(max_length=1, choices=[('M', 'Masculino'), ('F', 'Femenino'), ('O', 'Otro')], null=False)
     telefono_persona = models.CharField(max_length=10, blank=True, null=True)
     correo_persona = models.EmailField(blank=True, null=True)
     id_cabeza_familia = models.ForeignKey(
