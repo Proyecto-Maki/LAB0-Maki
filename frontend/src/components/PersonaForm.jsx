@@ -65,11 +65,11 @@ function PersonaForm({ get_personas, get_mayores_edad }) {
             <h2 className='form-container-h2'>Crear una Persona</h2>
             <div className='form-container-agr'>
                 <label htmlFor="id_persona">ID</label>
-                <input type="text" id="id_persona" value={id_persona} onChange={(e) => set_id_persona(e.target.value)} />
+                <input type="text" id="id_persona" value={id_persona} onChange={(e) => set_id_persona(e.target.value)} required/>
             </div>
             <div className='form-container-agr'>
                 <label htmlFor="nombre_1_persona">Primer Nombre</label>
-                <input type="text" id="nombre_1_persona" value={nombre_1_persona} onChange={(e) => set_nombre_1_persona(e.target.value)} />
+                <input type="text" id="nombre_1_persona" value={nombre_1_persona} onChange={(e) => set_nombre_1_persona(e.target.value)} required />
             </div>
             <div className='form-container-agr'>
                 <label htmlFor="nombre_2_persona">Segundo Nombre</label>
@@ -77,7 +77,7 @@ function PersonaForm({ get_personas, get_mayores_edad }) {
             </div>
             <div className='form-container-agr'>
                 <label htmlFor="apellido_1_persona">Primer Apellido</label>
-                <input type="text" id="apellido_1_persona" value={apellido_1_persona} onChange={(e) => set_apellido_1_persona(e.target.value)} />
+                <input type="text" id="apellido_1_persona" value={apellido_1_persona} onChange={(e) => set_apellido_1_persona(e.target.value)} required />
             </div>
             <div className='form-container-agr'>
                 <label htmlFor="apellido_2_persona">Segundo Apellido</label>
@@ -85,12 +85,12 @@ function PersonaForm({ get_personas, get_mayores_edad }) {
             </div>
             <div className='form-container-agr'>
                 <label htmlFor="fecha_nacimiento">Fecha de Nacimiento</label>
-                <input type="date" id="fecha_nacimiento" value={fecha_nacimiento} onChange={(e) => set_fecha_nacimiento(e.target.value)} />
+                <input type="date" id="fecha_nacimiento" value={fecha_nacimiento} onChange={(e) => set_fecha_nacimiento(e.target.value)} required />
             </div>
             <div className='form-container-agr'>
                 <label htmlFor="genero_persona">Género</label>
-                <select id="genero_persona" value={genero_persona} onChange={(e) => set_genero_persona(e.target.value)}>
-                    <option value="M">Masculino</option>
+                <select id="genero_persona" value={genero_persona} onChange={(e) => set_genero_persona(e.target.value)} required>
+                    <option value="M">Masculino</option> 
                     <option value="F">Femenino</option>
                     <option value="O">Otro</option>
                 </select>
