@@ -4,6 +4,7 @@ import Persona from "../components/Persona";
 import PersonaForm from "../components/PersonaForm";
 import Header from "../components/Header";
 import "../styles/Personas.css";
+import Footer from "../components/Footer";
 
 
 function Personas() {
@@ -120,7 +121,7 @@ function Personas() {
                     <Persona persona={persona} get_personas={get_personas} mayoresEdad={mayoresEdad} deletePersona={delete_persona} key={persona.id_persona} />
                 )}
             </div> 
-            
+            <Footer />
         </div>
     );
 }
