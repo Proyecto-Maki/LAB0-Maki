@@ -50,6 +50,20 @@ function Personas() {
         
     }
 
+    // const editarPersona = (persona) => {
+    //     api
+    //         .put(`/api/personas/update/${persona.id_persona}/`, persona)
+    //         .then((res) => {
+    //             if (res.status === 200) {
+    //                 alert("Persona actualizada");
+    //             } else {
+    //                 alert("Error al actualizar la persona");
+    //             }
+    //             get_personas();
+    //         })
+    //         .catch((err) => alert(err));
+    // }
+
     // const create_persona = (e) => {
     //     e.preventDefault();
     //     const nueva_persona = {
@@ -100,7 +114,7 @@ function Personas() {
             
             <div className="personas-list">
                 {personas.map((persona) =>
-                    <Persona persona={persona} deletePersona={delete_persona} key={persona.id_persona} />
+                    <Persona persona={persona} get_personas={get_personas} mayoresEdad={mayoresEdad} deletePersona={delete_persona} key={persona.id_persona} />
                 )}
             </div> 
             

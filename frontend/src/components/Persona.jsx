@@ -1,8 +1,10 @@
 import React from 'react';
+import { useState, useEffect } from "react";
 import '../styles/Persona.css';
 import { FaMale, FaFemale, FaGenderless, FaUserCircle } from 'react-icons/fa';
+import PersonaFormEdit from './PersonaFormEdit';
 
-function Persona({ persona, editarPersona, deletePersona }) {
+function Persona({ persona, get_personas, mayoresEdad, deletePersona }) {
     const formattedDate = new Date(persona.fecha_nacimiento).toLocaleDateString("es-ES");
 
     // const getGenderIcon = (gender) => {
@@ -15,6 +17,17 @@ function Persona({ persona, editarPersona, deletePersona }) {
     //             return <FaGenderless />;
     //     }
     // };
+
+    const [isEditarOpen, setIsEditarOpen] = useState(false);
+    const abrirEditar = () => {
+        setIsEditarOpen(true);
+    };
+
+    const cerrarEditar = () => {
+        setIsEditarOpen(false);
+        get_personas();
+    };
+
 
     return (
         <div className="persona-container">
@@ -31,9 +44,25 @@ function Persona({ persona, editarPersona, deletePersona }) {
                 <p className='persona-label'> Teléfono: {persona.telefono_persona}</p>
                 <p className='persona-label'>Correo eletrónico: {persona.correo_persona}</p>
                 {/* <p className='persona-label'>{persona.id_cabeza_familia}</p> */}
+                <button className= "persona-container-button-ed" onClick={abrirEditar}>Editar</button>
+                <button className= "persona-container-button-el" onClick={() => deletePersona(persona.id_persona)}>Eliminar</button>
             </div>
-            <button className= "persona-container-button-ed" onClick={() => editarPersona(persona.id_persona)}>Editar</button>
-            <button className= "persona-container-button-el" onClick={() => deletePersona(persona.id_persona)}>Eliminar</button>
+            
+
+            {
+                isEditarOpen && (
+                    <div>
+                        <PersonaFormEdit
+                            isEditarOpen={isEditarOpen}
+                            cerrarEditar={cerrarEditar}
+                            persona={persona}
+                            get_personas={get_personas}
+                            mayoresEdad={mayoresEdad}
+                        />
+                        <button onClick={cerrarEditar}>Cerrar</button>
+                    </div>
+                )
+            }
         </div>
     );
 }
