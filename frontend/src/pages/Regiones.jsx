@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import api from "../api";
 import Region from "../components/Region/Region";
+import RegionForm from "../components/Region/RegionForm";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import "../styles/Regiones.css";
 
 function Regiones() {
     const [regiones, set_regiones] = useState([]);
@@ -26,7 +28,10 @@ function Regiones() {
                 }
                 get_regiones();
             })
-            .catch((err) => alert(err));
+            .catch((err) => {
+                console.log(err.response.data);
+                alert("Error al eliminar la región");
+            });
     };
 
     useEffect(() => {
@@ -38,7 +43,9 @@ function Regiones() {
             <Header />
             <div className="regiones-container">
                 <div className="regiones-title">Regiones</div>
-                
+                <div className="form-container-r">
+                    <RegionForm get_regiones={get_regiones} />
+                </div>
             </div>
             <div className="regiones-list">
                     {

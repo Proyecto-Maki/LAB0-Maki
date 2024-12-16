@@ -1,6 +1,8 @@
 import React from 'react';
 import { useState, useEffect } from "react";
 import {FaMapMarkedAlt} from 'react-icons/fa';
+import '../../styles/Region.css';
+import RegionFormEdit from './RegionFormEdit';
 
 
 function Region({region, deleteRegion}){
@@ -23,6 +25,19 @@ function Region({region, deleteRegion}){
             </div>
             <button className= "region-container-button-ed" onClick={abrirEditar}>Editar</button>
             <button className= "region-container-button-el" onClick={() => deleteRegion(region.id_region)}>Eliminar</button>
+
+            {
+                isEditarOpen && (
+                    <div>
+                        <RegionFormEdit
+                            isEditarOpen={isEditarOpen}
+                            cerrarEditar={cerrarEditar}
+                            region={region}
+                            get_regiones={get_regiones}
+                        />
+                    </div>
+                )
+            }
         </div>
     );
 }
