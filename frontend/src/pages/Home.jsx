@@ -1,24 +1,22 @@
-import { useState } from 'react';
-import api from '../api';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ACCESS_TOKEN, REFRESH_TOKEN } from '../constants';
+import Header from '../components/Header';
 
-function Home () {
+function Home() {
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
+  const handlePersonasClick = () => {
+    navigate('/personas');
+  };
 
-    const personas = () => {
-        navigate('/personas');
-    }
-
-    return (
-        <div>
-        <h1>Home</h1>
-        <div>
-            <button onClick={personas}>Personas</button>
-        </div>
-        </div>
-    );
+  return (
+    <div>
+      <Header />
+      <h1>Home</h1>
+      <button onClick={handlePersonasClick}>Personas</button>
+      {/* Otros elementos del componente Home */}
+    </div>
+  );
 }
 
-export default Home
+export default Home;
