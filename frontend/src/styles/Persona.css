@@ -12,6 +12,11 @@
 
 }
 
+PersonaFormEdit{
+    position: relative;
+    z-index: 100;
+}
+
 .persona-icon {
     margin-right: 10px;
     font-size: 50px;

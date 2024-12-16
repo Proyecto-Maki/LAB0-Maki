@@ -105,7 +105,7 @@ function PersonaFormEdit({ isEditarOpen, cerrarEditar, persona, get_personas, ma
                             ))}
                         </select>
                     </div>
-                    <button type="submit">Actualizar persona</button>
+                    <button className="modal-botton" type="submit">Actualizar persona</button>
                 </form>
             </div>
         </div>

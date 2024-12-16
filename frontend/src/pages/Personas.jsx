@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import api from "../api";
 import Persona from "../components/Persona";
 import PersonaForm from "../components/PersonaForm";
+import Header from "../components/Header";
 import "../styles/Personas.css";
 
 
@@ -102,7 +103,9 @@ function Personas() {
     }, [])
 
     return (
+        
         <div className="personas">
+            <Header />
             <div className="personas-container">
                 <div className="personas-title">
                     <h1>Personas</h1>

@@ -14,7 +14,7 @@ body{
 
 .form-container-persona{
     width: 450px;
-    height: 80vh;
+    height: 70vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
