@@ -60,7 +60,7 @@ function PersonaFormEdit({ isEditarOpen, cerrarEditar, persona, get_personas, ma
                     </div>
                     <div className='form-container-agr'>
                         <label htmlFor="nombre_1_persona">Primer Nombre</label>
-                        <input type="text" id="nombre_1_persona" value={nombre_1_persona} onChange={(e) => set_nombre_1_persona(e.target.value)} />
+                        <input type="text" id="nombre_1_persona" value={nombre_1_persona} onChange={(e) => set_nombre_1_persona(e.target.value)} required/>
                     </div>
                     <div className='form-container-agr'>
                         <label htmlFor="nombre_2_persona">Segundo Nombre</label>
@@ -68,7 +68,7 @@ function PersonaFormEdit({ isEditarOpen, cerrarEditar, persona, get_personas, ma
                     </div>
                     <div className='form-container-agr'>
                         <label htmlFor="apellido_1_persona">Primer Apellido</label>
-                        <input type="text" id="apellido_1_persona" value={apellido_1_persona} onChange={(e) => set_apellido_1_persona(e.target.value)} />
+                        <input type="text" id="apellido_1_persona" value={apellido_1_persona} onChange={(e) => set_apellido_1_persona(e.target.value)} required/>
                     </div>
                     <div className='form-container-agr'>
                         <label htmlFor="apellido_2_persona">Segundo Apellido</label>
@@ -76,11 +76,11 @@ function PersonaFormEdit({ isEditarOpen, cerrarEditar, persona, get_personas, ma
                     </div>
                     <div className='form-container-agr'>
                         <label htmlFor="fecha_nacimiento">Fecha de Nacimiento</label>
-                        <input type="date" id="fecha_nacimiento" value={fecha_nacimiento} onChange={(e) => set_fecha_nacimiento(e.target.value)} />
+                        <input type="date" id="fecha_nacimiento" value={fecha_nacimiento} onChange={(e) => set_fecha_nacimiento(e.target.value)} required/>
                     </div>
                     <div className='form-container-agr'>
                         <label htmlFor="genero_persona">Género</label>
-                        <select id="genero_persona" value={genero_persona} onChange={(e) => set_genero_persona(e.target.value)}>
+                        <select id="genero_persona" value={genero_persona} onChange={(e) => set_genero_persona(e.target.value)} required>
                             <option value="M">Masculino</option>
                             <option value="F">Femenino</option>
                             <option value="O">Otro</option>
@@ -105,7 +105,7 @@ function PersonaFormEdit({ isEditarOpen, cerrarEditar, persona, get_personas, ma
                             ))}
                         </select>
                     </div>
-                    <button type="submit">Actualizar persona</button>
+                    <button className="modal-botton" type="submit">Actualizar persona</button>
                 </form>
             </div>
         </div>

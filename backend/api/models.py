@@ -61,6 +61,7 @@ class Mascota(models.Model):
     nombre_mascota = models.CharField(max_length=50, null=False)
     especie_mascota = models.CharField(max_length=50, null=False)
     raza_mascota = models.CharField(max_length=50, null=False)
+    sexo_mascota = models.CharField(max_length=1, choices=[('M', 'Macho'), ('H', 'Hembra')], null=False)
     id_vivienda = models.ForeignKey(Vivienda, on_delete=models.CASCADE, null=False)
 
     def __str__(self):
