@@ -26,3 +26,5 @@ function Region({region, deleteRegion}){
         </div>
     );
 }
+
+export default Region;

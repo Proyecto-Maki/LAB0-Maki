@@ -57,3 +57,5 @@ function Regiones() {
     );
 
 }
+
+export default Regiones;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from "react";
-import '../styles/Persona.css';
+import '../../styles/Persona.css';
 import {FaUserCircle } from 'react-icons/fa';
 import PersonaFormEdit from './PersonaFormEdit';
 
