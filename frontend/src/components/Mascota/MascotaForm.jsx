@@ -73,7 +73,7 @@ function MascotaForm ({get_mascotas, get_viviendas}){
                 <select id="id_vivienda" value={id_vivienda} onChange={(e) => set_id_vivienda(e.target.value)} required>
                     <option value="">Seleccione una vivienda</option>
                     {get_viviendas.map((vivienda) => (
-                        <option key={vivienda.id_vivienda} value={vivienda.id_vivienda}>{vivienda.id_vivienda} {vivienda.direccion_vivienda} {vivienda}</option>
+                        <option key={vivienda.id_vivienda} value={vivienda.id_vivienda}>{vivienda.id_vivienda} {vivienda.direccion_vivienda}</option>
                     ))}
                 </select>
             </div>

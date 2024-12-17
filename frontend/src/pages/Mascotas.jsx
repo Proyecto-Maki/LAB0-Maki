@@ -1,19 +1,68 @@
 import { useState, useEffect } from "react";
+import api from "../api";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import "../styles/Mascotas.css";
+import "../styles/Mascota/Mascotas.css";
+import Mascota from "../components/Mascota/Mascota";
+import MascotaForm from "../components/Mascota/MascotaForm";
+
 
 function Mascotas() {
+    const [mascotas, set_mascotas] = useState([]);
+    const [viviendas, set_viviendas] = useState([]);    
+
+
+    const get_mascotas = () => {
+        api
+            .get("/api/mascotas/")
+            .then((res) => res.data)
+            .then((data) => { set_mascotas(data), console.log("Mascotas", data) })
+            .catch((err) => alert(err));
+    };
+
+    const get_viviendas = () => {
+        api
+            .get("/api/viviendas/")
+            .then((res) => res.data)
+            .then((data) => { set_viviendas(data), console.log("Viviendas", data) })
+            .catch((err) => alert(err));
+    }
+
+    const delete_mascota = (id) => {
+        api
+            .delete(`/api/mascotas/delete/${id}/`)
+            .then((res) => {
+                if (res.status === 204) {
+                    alert("Mascota eliminada");
+                } else {
+                    alert("Error al eliminar la mascota");
+                }
+                get_mascotas();
+            })
+            .catch((err) => alert(err));
+        
+    }
+
+    useEffect(() => {
+        get_mascotas();
+        get_viviendas();
+    }, []);
+
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+        <div className="mascotas-container">
             <Header />
-            <div className="mascotas-container">
-                <div className="mascotas-title">
-                    <h1>Mascotas</h1>
-                </div>
-                <div className="construction-message">
-                    <p>Esta página está en construcción. ¡Vuelve pronto para más información!</p>
-                </div>
+            <h1>Mascotas</h1>
+            <MascotaForm get_mascotas={get_mascotas} get_viviendas={viviendas}/>
+            <div className="mascotas">
+                {mascotas.map((mascota) => (
+                    <Mascota
+                        key={mascota.id_mascota}
+                        mascota={mascota}
+                        get_mascotas={get_mascotas}
+                        get_viviendas={viviendas}
+                        deleteMascota={delete_mascota}
+                    />
+                ))}
             </div>
             <Footer />
         </div>
