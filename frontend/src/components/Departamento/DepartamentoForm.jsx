@@ -25,7 +25,7 @@ function DepartamentoForm({get_departamentos, get_regiones}) {
                 } else {
                     alert("Error al crear el departamento");
                 }
-                get_personas();
+                get_departamentos();
                 set_nombre_departamento("");
                 set_id_region("");
             })
