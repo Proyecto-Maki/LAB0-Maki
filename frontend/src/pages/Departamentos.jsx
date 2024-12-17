@@ -10,6 +10,7 @@ import "../styles/Departamento.css";
 
 function Departamentos(){
     const [departamentos, set_departamentos] = useState([]);
+    const [regiones, set_regiones] = useState([]);
     const [departamentos__por_region, set_departamentos_por_region] = useState([]);
     const [id_region, set_id_region] = useState("");
 
@@ -21,6 +22,14 @@ function Departamentos(){
             .then((data) => { set_departamentos(data), console.log("Departamentos", data) })
             .catch((err) => alert(err));
     }
+
+    const get_regiones = () => {
+        api
+            .get("/api/regiones/")
+            .then((res) => res.data)
+            .then((data) => { set_regiones(data), console.log("Regiones", data) })
+            .catch((err) => alert(err));
+    };
 
     const get_departamentos_por_region = (id_departamento) => {
         api
@@ -58,12 +67,12 @@ function Departamentos(){
             <div className="departamentos-container">
                 <div className="departamentos-title">departamentos</div>
                 <div className="form-container-r">
-                    <DepartamentoForm get_departamentos={get_departamentos} />
+                    <DepartamentoForm get_departamentos={get_departamentos} get_regiones={regiones} />
                 </div>
             </div>
             <div className="departamentos-list">
                 <select>
-                    
+
                 </select>
                     {
                         departamentos.map((departamento) => (
