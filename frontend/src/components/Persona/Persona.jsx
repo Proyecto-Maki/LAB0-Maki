@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from "react";
-import '../styles/Persona.css';
-import { FaMale, FaFemale, FaGenderless, FaUserCircle } from 'react-icons/fa';
+import '../../styles/Persona.css';
+import {FaUserCircle } from 'react-icons/fa';
 import PersonaFormEdit from './PersonaFormEdit';
 
 function Persona({ persona, get_personas, mayoresEdad, deletePersona }) {

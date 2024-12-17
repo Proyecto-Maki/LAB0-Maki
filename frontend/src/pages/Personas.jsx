@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import api from "../api";
-import Persona from "../components/Persona";
-import PersonaForm from "../components/PersonaForm";
+import Persona from "../components/Persona/Persona";
+import PersonaForm from "../components/Persona/PersonaForm";
 import Header from "../components/Header";
 import "../styles/Personas.css";
 import Footer from "../components/Footer";
