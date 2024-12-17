@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from "react";
-import '../../styles/Departamento.css';
+import '../../styles/Departamento/Departamento.css';
 import DepartamentoFormEdit from './DepartamentoFormEdit';
 
 

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import api from '../../api';
 import { useNavigate } from 'react-router-dom';
-import '../../styles/DepartamentoForm.css';
+import '../../styles/Departamento/DepartamentoForm.css';
 
 function DepartamentoForm({get_departamentos, get_regiones}) {
     const [nombre_departamento, set_nombre_departamento] = useState("");

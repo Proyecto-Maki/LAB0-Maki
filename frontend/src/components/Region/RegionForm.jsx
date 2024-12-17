@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import api from '../../api';
 import { useNavigate } from 'react-router-dom';
-import '../../styles/RegionForm.css';
+import '../../styles/Region/RegionForm.css';
 
 function RegionForm({get_regiones}){
     const [nombre_region, set_nombre_region] = useState("");

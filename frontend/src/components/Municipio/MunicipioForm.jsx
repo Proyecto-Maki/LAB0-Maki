@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import api from '../../api';
 import { useNavigate } from 'react-router-dom';
-import '../../styles/MunicipioForm.css';
+import '../../styles/Municipio/MunicipioForm.css';
 
 function MunicipioForm({get_municipios, get_departamentos}){
     const [nombre_municipio, set_nombre_municipio] = useState("");

@@ -5,7 +5,7 @@ import DepartamentoForm from "../components/Departamento/DepartamentoForm"
 import DepartamentoFormEdit from "../components/Departamento/DepartamentoFormEdit";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import "../styles/Departamento.css";
+import "../styles/Departamento/Departamentos.css";
 
 
 function Departamentos(){

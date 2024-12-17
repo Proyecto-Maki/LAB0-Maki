@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from "react";
 import {FaMapMarkedAlt} from 'react-icons/fa';
-import '../../styles/Region.css';
+import '../../styles/Region/Region.css';
 import RegionFormEdit from './RegionFormEdit';
 
 

@@ -4,7 +4,7 @@ import Region from "../components/Region/Region";
 import RegionForm from "../components/Region/RegionForm";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import "../styles/Regiones.css";
+import "../styles/Region/Regiones.css";
 
 function Regiones() {
     const [regiones, set_regiones] = useState([]);

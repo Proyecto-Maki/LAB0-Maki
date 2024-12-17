@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from "react";
-import '../../styles/Persona.css';
+import '../../styles/Municipio/Municipio.css';
 import MunicipioFormEdit from './MunicipioFormEdit';
 
 function Municipio({municipio, deleteMunicipio, get_municipios}){

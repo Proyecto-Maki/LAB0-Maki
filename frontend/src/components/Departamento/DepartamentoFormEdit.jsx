@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import api from "../../api";
-import "../../styles/ModalEditarDepartamento.css";
+import "../../styles/Departamento/ModalEditarDepartamento.css";
 
 function DepartamentoFormEdit ({isEditarOpen, cerrarEditar, departamento, get_departamentos, get_regiones}){
     const [id_departamento, set_id_departamento] = useState(departamento.id_departamento);

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import api from "../../api";
-import "../../styles/ModalEditarMunicipio.css";
+import "../../styles/Municipio/ModalEditarMunicipio.css";
 
 function MunicipioFormEdit ({isEditarOpen, cerrarEditar, municipio, get_municipios, get_departamentos}){
     const [id_municipio, set_id_municipio] = useState(municipio.id_municipio);
