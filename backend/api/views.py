@@ -138,6 +138,15 @@ class DepartamentoListCreate(generics.ListCreateAPIView):
     def perform_create(self, serializer):
         serializer.save()
 
+class DepartamentoPorRegion(generics.ListAPIView):
+    serializer_class = DepartamentoSerializer
+    permission_classes = [AllowAny]
+
+    def get_queryset(self):
+        region_id = self.kwargs.get("region_id")
+        return Departamento.objects.filter(id_region=region_id)
+        
+
 class DepartamentoDelete(generics.DestroyAPIView):
     serializer_class = DepartamentoSerializer
     permission_classes = [AllowAny]

@@ -12,6 +12,7 @@ urlpatterns = [
     path('departamentos/', views.DepartamentoListCreate.as_view(), name="departamentos"),
     path('departamentos/delete/<int:pk>/', views.DepartamentoDelete.as_view(), name="eliminar_departamento"),
     path('departamentos/update/<int:pk>/', views.DepartamentoUpdate.as_view(), name="actualizar_departamento"),
+    path('departamentos/region/<int:pk>/', views.DepartamentoPorRegion.as_view(), name="departamento_region"),
     path('municipios/', views.MunicipioListCreate.as_view(), name="municipios"),
     path('municipios/delete/<int:pk>/', views.MunicipioDelete.as_view(), name="eliminar_municipio"),
     path('municipios/update/<int:pk>/', views.MunicipioUpdate.as_view(), name="actualizar_municipio"),

@@ -5,7 +5,7 @@ import '../../styles/Region.css';
 import RegionFormEdit from './RegionFormEdit';
 
 
-function Region({region, deleteRegion}){
+function Region({region, deleteRegion, get_regiones}){
     const [isEditarOpen, setIsEditarOpen] = useState(false);
     const abrirEditar = () => {
         setIsEditarOpen(true);
