@@ -63,7 +63,7 @@ function ViviendaForm({get_viviendas, get_personas, get_municipios}){
                 <label htmlFor="id_municipio">Municipio</label>
                 <select id="id_municipio" value={id_municipio} onChange={(e) => set_id_municipio(e.target.value)} required>
                     <option value="">Seleccione un municipio</option>
-                    {get_municipios().map((municipio) => (
+                    {get_municipios.map((municipio) => (
                         <option key={municipio.id_municipio} value={municipio.id_municipio}>{municipio.nombre_municipio}</option>
                     ))}
                 </select>
@@ -72,7 +72,7 @@ function ViviendaForm({get_viviendas, get_personas, get_municipios}){
                 <label htmlFor="id_persona">Propietario(a)</label>
                 <select id="id_persona" value={id_persona} onChange={(e) => set_id_persona(e.target.value)} required>
                     <option value="">Seleccione una persona</option>
-                    {get_personas().map((persona) => (
+                    {get_personas.map((persona) => (
                         <option key={persona.id_persona} value={persona.id_persona}>{persona.id_persona} {persona.nombre_1_persona} {persona.apellido_1_persona}</option>
                     ))}
                 </select>

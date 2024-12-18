@@ -18,7 +18,7 @@ urlpatterns = [
     path('departamentos/', views.DepartamentoListCreate.as_view(), name="departamentos"),
     path('departamentos/delete/<int:pk>/', views.DepartamentoDelete.as_view(), name="eliminar_departamento"),
     path('departamentos/update/<int:pk>/', views.DepartamentoUpdate.as_view(), name="actualizar_departamento"),
-    path('departamentos/region/<int:pk>/', views.DepartamentoPorRegion.as_view(), name="departamento_region"),
+    path('departamentos/region/<int:id_region>/', views.DepartamentoPorRegion.as_view(), name="departamento_region"),
 
     # municipios
     path('municipios/', views.MunicipioListCreate.as_view(), name="municipios"),
@@ -37,9 +37,14 @@ urlpatterns = [
     path('viviendas/delete/<int:pk>/', views.ViviendaDelete.as_view(), name="eliminar_vivienda"),
     path('viviendas/update/<int:pk>/', views.ViviendaUpdate.as_view(), name="actualizar_vivienda"),
     path('viviendas/municipio/<int:pk>/', views.ViviendaPorMunicipio.as_view(), name="vivienda_municipio"),
+    path('viviendas/persona/<str:pk>/', views.ViviendaPorPersona.as_view(), name="vivienda_persona"),
 
     
+    path('viviendas/<int:id_municipio>/<int:id_departamento>/', views.ViviendaMunicipioDepartamento.as_view(), name='vivienda_municipio_departamento'),
 
+    path('persona/vivienda/', views.PersonaResideViviendaListCreate.as_view(), name="persona_vivienda"),
+    path('persona/vivienda/delete/<str:id_persona>/<int:id_vivienda>/', views.PersonaResideViviendaDelete.as_view(), name="eliminar_persona_vivienda"),
+    path('persona/vivienda/update/<str:id_persona>/int:id_vivienda/', views.PersonaResideViviendaUpdate.as_view(), name="actualizar_persona_vivienda"),
 
     
 ]

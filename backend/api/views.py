@@ -143,8 +143,11 @@ class DepartamentoPorRegion(generics.ListAPIView):
     permission_classes = [AllowAny]
 
     def get_queryset(self):
-        region_id = self.kwargs.get("id_region")
-        return Departamento.objects.filter(id_region=region_id)
+        query_set = Departamento.objects.all()
+        id_region = self.request.query_params.get('id_region')
+        if id_region is not None:
+            query_set = query_set.filter(id_region=id_region)
+        return query_set
         
 
 class DepartamentoDelete(generics.DestroyAPIView):
@@ -239,6 +242,21 @@ class ViviendaPorMunicipio(generics.ListAPIView):
     def get_queryset(self):
         id_municipio = self.kwargs.get("id_municipio")
         return Vivienda.objects.filter(id_municipio=id_municipio)
+    
+class ViviendaPorPersona(generics.ListAPIView):
+    serializer_class = ViviendaSerializer
+    permission_classes = [AllowAny]
+
+    def get_queryset(self):
+        id_persona = self.kwargs.get("id_persona")
+        return Vivienda.objects.filter(id_persona=id_persona)
+    
+class ViviendaMunicipioDepartamento(generics.ListAPIView):
+    serializer_class = ViviendaSerializer
+    permission_classes = [AllowAny]
+    def get_queryset(self):
+        return Vivienda.objects.select_related('id_municipio__id_departamento').all()
+
 
 ## Vista de MASCOTA
 class MascotaListCreate(generics.ListCreateAPIView):
