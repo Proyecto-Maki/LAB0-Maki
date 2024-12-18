@@ -239,6 +239,14 @@ class ViviendaPorMunicipio(generics.ListAPIView):
     def get_queryset(self):
         id_municipio = self.kwargs.get("id_municipio")
         return Vivienda.objects.filter(id_municipio=id_municipio)
+    
+class ViviendaPorPersona(generics.ListAPIView):
+    serializer_class = ViviendaSerializer
+    permission_classes = [AllowAny]
+
+    def get_queryset(self):
+        id_persona = self.kwargs.get("id_persona")
+        return Vivienda.objects.filter(id_persona=id_persona)
 
 ## Vista de MASCOTA
 class MascotaListCreate(generics.ListCreateAPIView):

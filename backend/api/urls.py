@@ -37,6 +37,7 @@ urlpatterns = [
     path('viviendas/delete/<int:pk>/', views.ViviendaDelete.as_view(), name="eliminar_vivienda"),
     path('viviendas/update/<int:pk>/', views.ViviendaUpdate.as_view(), name="actualizar_vivienda"),
     path('viviendas/municipio/<int:pk>/', views.ViviendaPorMunicipio.as_view(), name="vivienda_municipio"),
+    path('viviendas/persona/<str:pk>/', views.ViviendaPorPersona.as_view(), name="vivienda_persona"),
 
     
 

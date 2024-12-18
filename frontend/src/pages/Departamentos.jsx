@@ -81,7 +81,7 @@ function Departamentos(){
                     }
                 </select>
                     {
-                        departamentos.map((departamento) => (
+                        departamentos_por_region.map((departamento) => (
                             <Departamento
                                 key={departamento.id_departamento}
                                 departamento={departamento}

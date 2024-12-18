@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import api from "../../api";
-import "../../styles/Persona/ModalEditarVivienda.css";
+import "../../styles/Vivienda/ModalEditarVivienda.css";
 
 function ViviendaFormEdit({isEditarOpen, cerrarEditar, vivienda, get_viviendas, get_personas, get_municipios}){
     const [id_vivienda, set_id_vivienda] = useState(vivienda.id_vivienda);
