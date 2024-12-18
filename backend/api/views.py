@@ -143,8 +143,11 @@ class DepartamentoPorRegion(generics.ListAPIView):
     permission_classes = [AllowAny]
 
     def get_queryset(self):
-        id_region = self.kwargs.get("id_region")
-        return Departamento.objects.filter(id_region=id_region)
+        query_set = Departamento.objects.all()
+        id_region = self.request.query_params.get('id_region')
+        if id_region is not None:
+            query_set = query_set.filter(id_region=id_region)
+        return query_set
         
 
 class DepartamentoDelete(generics.DestroyAPIView):
