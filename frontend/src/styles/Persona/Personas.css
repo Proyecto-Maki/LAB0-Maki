@@ -31,7 +31,7 @@ Header{
     position: relative;
     width: 100%;
     height: 110vh;
-    background-image: url('../img/colombia-4878723_1920.jpg');
+    background-image: url('../../img/colombia-4878723_1920.jpg');
     background-size: cover;
     background-repeat: no-repeat; /* Evita que la imagen se repita */
     background-position: center; /* Centra la imagen */

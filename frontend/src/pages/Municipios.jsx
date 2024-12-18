@@ -1,3 +1,4 @@
+import '../styles/Municipio/Municipios.css';
 function Municipios(){
 
 }

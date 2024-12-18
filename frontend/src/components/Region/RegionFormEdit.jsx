@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import api from "../../api";
-import "../../styles/ModalEditarRegion.css";
+import "../../styles/Region/ModalEditarRegion.css";
 
 function RegionFormEdit({isEditarOpen, cerrarEditar, region, get_regiones}) {
     const [id_region, set_id_region] = useState(region.id_region);

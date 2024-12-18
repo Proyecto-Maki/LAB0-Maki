@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import api from '../../api';
 import { useNavigate } from 'react-router-dom';
-import '../../styles/PersonaForm.css';
+import '../../styles/Persona/PersonaForm.css';
 
 function PersonaForm({ get_personas, get_mayores_edad }) {
     const [id_persona, set_id_persona] = useState("");

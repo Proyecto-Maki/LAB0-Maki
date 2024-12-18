@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import api from "../../api";
-import "../../styles/ModalEditarPersona.css";
+import "../../styles/Persona/ModalEditarPersona.css";
 
 function PersonaFormEdit({ isEditarOpen, cerrarEditar, persona, get_personas, mayoresEdad }) {
 
