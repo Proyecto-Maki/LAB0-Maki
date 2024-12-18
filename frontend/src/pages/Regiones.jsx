@@ -38,31 +38,30 @@ function Regiones() {
         get_regiones();
     }, []);
 
-    return(
+    return (
         <div className="regiones">
             <Header />
             <div className="regiones-container">
-                <div className="regiones-title">Regiones</div>
+                <div className="regiones-title">
+                    <h1>Regiones</h1>
+                </div>
                 <div className="form-container-r">
                     <RegionForm get_regiones={get_regiones} />
                 </div>
             </div>
             <div className="regiones-list">
-                    {
-                        regiones.map((region) => (
-                            <Region
-                                key={region.id_region}
-                                region={region}
-                                get_regiones={get_regiones}
-                                deleteRegion={delete_region}
-                            />
-                        ))
-                    }
-                </div>
+                {regiones.map((region) => (
+                    <Region
+                        key={region.id_region}
+                        region={region}
+                        get_regiones={get_regiones}
+                        deleteRegion={delete_region}
+                    />
+                ))}
+            </div>
             <Footer />
         </div>
     );
-
 }
 
 export default Regiones;

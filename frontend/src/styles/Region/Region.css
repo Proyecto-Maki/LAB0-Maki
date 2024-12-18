@@ -1,0 +1,49 @@
+.region-container {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    padding: 1.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(255, 255, 255);
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+}
+
+.region-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    width: 100%;
+}
+
+.region-buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.region-container-button-ed,
+.region-container-button-el {
+    width: 48%;
+    padding: 10px;
+    font-size: 16px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    font-weight: 600;
+}
+
+.region-container-button-ed {
+    background-color: #8da632;
+}
+
+.region-container-button-el {
+    background-color: #a65332;
+}

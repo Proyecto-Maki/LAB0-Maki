@@ -1,23 +1,23 @@
-import { useState, useEffect } from "react";
-import api from "../../api";
-import "../../styles/Region/ModalEditarRegion.css";
+import { useState } from 'react';
+import api from '../../api';
+import '../../styles/Region/ModalEditarRegion.css';
 
-function RegionFormEdit({isEditarOpen, cerrarEditar, region, get_regiones}) {
-    const [id_region, set_id_region] = useState(region.id_region);
+function RegionFormEdit({ isEditarOpen, cerrarEditar, region, get_regiones }) {
     const [nombre_region, set_nombre_region] = useState(region.nombre_region);
+    const [descripcion_region, set_descripcion_region] = useState(region.descripcion_region);
 
     const editarRegion = async (e) => {
         e.preventDefault();
 
         const updated_region = {
-            id_region,
             nombre_region,
+            descripcion_region,
         };
 
         console.log(updated_region);
 
         try {
-            const res = await api.put(`/api/regiones/update/${id_region}/`, updated_region);
+            const res = await api.put(`/api/regiones/update/${region.id_region}/`, updated_region);
             if (res.status === 200) {
                 alert("Región actualizada");
                 cerrarEditar(); // Cierra el modal
@@ -31,24 +31,26 @@ function RegionFormEdit({isEditarOpen, cerrarEditar, region, get_regiones}) {
     }
 
     return (
-        <div className="modal-editar-region">
-            <div className="modal-editar-region-content">
-                <span className="close" onClick={cerrarEditar}>&times;</span>
-                <form onSubmit={editarRegion} className='form-container-region'>
-                    <h2 className='form-container-h2'>Editar Región</h2>
-                    <div className='form-container-agr'>
-                        <label htmlFor="id_region">ID</label>
-                        <input type="text" id="id_region" value={id_region} onChange={(e) => set_id_region(e.target.value)} disabled />
-                    </div>
-                    <div className='form-container-agr'>
-                        <label htmlFor="nombre_region">Nombre de la región</label>
-                        <input type="text" id="nombre_region" value={nombre_region} onChange={(e) => set_nombre_region(e.target.value)} required />
-                    </div>
-                    <button className="modal-button" type="submit">Actualizar región</button>
-                </form>
+        isEditarOpen && (
+            <div className="modal-editar-region">
+                <div className="modal-editar-region-content">
+                    <span className="close" onClick={cerrarEditar}>&times;</span>
+                    <form onSubmit={editarRegion} className='form-container-region'>
+                        <h2 className='form-container-h2'>Editar Región</h2>
+                        <div className='form-container-agr'>
+                            <label htmlFor="nombre_region">Nombre</label>
+                            <input type="text" id="nombre_region" value={nombre_region} onChange={(e) => set_nombre_region(e.target.value)} required />
+                        </div>
+                        <div className='form-container-agr'>
+                            <label htmlFor="descripcion_region">Descripción</label>
+                            <input type="text" id="descripcion_region" value={descripcion_region} onChange={(e) => set_descripcion_region(e.target.value)} required />
+                        </div>
+                        <button className="modal-botton" type="submit">Actualizar región</button>
+                    </form>
+                </div>
             </div>
-        </div>
-    )
+        )
+    );
 }
 
 export default RegionFormEdit;
