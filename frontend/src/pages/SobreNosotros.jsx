@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
-function AboutUs() {
+function SobreNosotros() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <Header />
@@ -47,4 +47,4 @@ function AboutUs() {
   );
 }
 
-export default AboutUs;
+export default SobreNosotros;

@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import EDRFINAL from '../img/EDRFINAL.png'; // Asegúrate de que la ruta sea correcta
+import EDRFINAL from '../img/EDRFINAL.png'; //amen
 
 function Home() {
   const navigate = useNavigate();
