@@ -14,8 +14,8 @@ function Header() {
           <Link to="/personas" className="nav-link">Personas</Link>
           <Link to="/mascotas" className="nav-link">Mascotas</Link>
           <Link to="/viviendas" className="nav-link">Viviendas</Link>
-          <Link to="/departamentos" className="nav-link">Departamentos</Link>
           <Link to="/municipios" className="nav-link">Municipios</Link> {/* Nuevo enlace */}
+          <Link to="/departamentos" className="nav-link">Departamentos</Link>
           <Link to="/regiones" className="nav-link">Regiones</Link> {/* Nuevo enlace */}
           <Link to="/sobre-nosotros" className="nav-link">Sobre Nosotros</Link> {/* Nuevo enlace */}
           {/* Otros enlaces xd*/}

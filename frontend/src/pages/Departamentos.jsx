@@ -73,7 +73,6 @@ function Departamentos() {
                 </div>
             </div>
             <div className="departamentos-list">
-                <div className="departamentos-list-title">Lista de departamentos</div>
                 {/* <select onChange={(e) => {set_id_region(e.target.value); get_departamentos_por_region(e.target.value)}}>
                     <option value="">Seleccione una región</option>
                     {regiones.map((region) => (
