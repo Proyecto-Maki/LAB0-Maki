@@ -14,6 +14,8 @@ function PersonaFormEdit({ isEditarOpen, cerrarEditar, persona, get_personas, ma
     const [telefono_persona, set_telefono_persona] = useState(persona.telefono_persona);
     const [correo_persona, set_correo_persona] = useState(persona.correo_persona);
     const [id_cabeza_familia, set_id_cabeza_familia] = useState(persona.id_cabeza_familia);
+    const [persona_cabeza_nombre, set_persona_cabeza_nombre] = useState("");
+    const [persona_cabeza_apellido, set_persona_cabeza_apellido] = useState("");
 
     const editarPersona = async (e) => {
         e.preventDefault();
@@ -46,6 +48,28 @@ function PersonaFormEdit({ isEditarOpen, cerrarEditar, persona, get_personas, ma
             alert("Error al actualizar la persona");
         }
     }
+
+    const personaCabeza = async (id_cabeza_familia) => {
+        api
+            .get(`/api/persona/${id_cabeza_familia}/`)
+            .then((res) => res.data)
+            .then((data) => { 
+                set_persona_cabeza_nombre(data.nombre_1_persona);
+                set_persona_cabeza_apellido(data.apellido_1_persona);
+                console.log(data);
+                if (res.status === 204) {
+                    alert("Persona traida");
+                } else {
+                    alert("Error al traer la persona");
+                }
+             })
+            .catch((err) => alert(err));
+    }
+
+    useEffect(() => {
+        personaCabeza();
+    },[]);
+
 
 
     return (
@@ -97,7 +121,9 @@ function PersonaFormEdit({ isEditarOpen, cerrarEditar, persona, get_personas, ma
                     <div className='form-container-agr'>
                         <label htmlFor="id_cabeza_familia">ID cabeza de familia</label>
                         <select id="id_cabeza_familia" value={id_cabeza_familia} onChange={(e) => set_id_cabeza_familia(e.target.value)}>
-                            <option value="">Seleccione el cabeza de familia</option>
+                        <option value={id_cabeza_familia}>{id_cabeza_familia} 
+                            {persona_cabeza_nombre} {persona_cabeza_apellido}
+                        </option>
                             {Array.isArray(mayoresEdad) && mayoresEdad.map((persona) => (
                                 <option key={persona.id_persona} value={persona.id_persona}>
                                     {persona.id_persona} {persona.nombre_1_persona} {persona.apellido_1_persona}
@@ -105,6 +131,17 @@ function PersonaFormEdit({ isEditarOpen, cerrarEditar, persona, get_personas, ma
                             ))}
                         </select>
                     </div>
+                    {/* <div className='form-container-agr'>
+                        <label htmlFor="id_vivienda">ID Vivienda</label>
+                        <select id="id_vivienda" value={id_vivienda} onChange={(e) => set_id_vivienda(e.target.value)}>
+                            <option value="">Seleccione la vivienda</option>
+                            { get_viviendas.map((vivienda) => (
+                                <option key={vivienda.id_vivienda} value={vivienda.id_vivienda}>
+                                    {vivienda.id_vivienda} {vivienda.direccion_vivienda} {vivienda.nombre_municipio} {vivienda.nombre_departamento}
+                                </option>
+                            ))}
+                        </select>
+                    </div> */}
                     <button className="modal-botton" type="submit">Actualizar persona</button>
                 </form>
             </div>

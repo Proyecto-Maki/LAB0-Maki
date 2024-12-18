@@ -40,7 +40,7 @@ function Personas() {
 
     const get_viviendas = () => {
         api
-            .get("/api/persona/vivienda/")
+            .get("/api/viviendas/")
             .then((res) => res.data)
             .then((data) => { set_viviendas(data), console.log("Viviendas", data) })
             .catch((err) => alert(err));

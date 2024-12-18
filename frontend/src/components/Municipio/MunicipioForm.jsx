@@ -20,12 +20,12 @@ function MunicipioForm({get_municipios, get_departamentos}){
         console.log(nuevo_municipio);
 
         api
-            .post("/api/departamentos/", nuevo_departamento)
+            .post("/api/municipios/", nuevo_municipio)
                 .then((res) => {
                     if (res.status === 201) {
-                        alert("Departamento creado");
+                        alert("Municipio creado");
                     } else {
-                        alert("Error al crear el departamento");
+                        alert("Error al crear el municipio");
                     }
                     get_municipios();
                     set_nombre_municipio("");

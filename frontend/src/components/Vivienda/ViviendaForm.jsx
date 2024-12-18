@@ -47,10 +47,10 @@ function ViviendaForm({get_viviendas, get_personas, get_municipios}){
     return(
         <form className="form-container-vivienda" onSubmit={create_vivienda}>
             <h2>Crear Vivienda</h2>
-            <div className="form-group-vivienda">
+            {/* <div className="form-group-vivienda">
                 <label htmlFor="id_vivienda">Id Vivienda</label>
                 <input type="text" id="id_vivienda" value={id_vivienda} onChange={(e) => set_id_vivienda(e.target.value)} required/>
-            </div>
+            </div> */}
             <div className="form-group-vivienda">
                 <label htmlFor="direccion_vivienda">Dirección</label>
                 <input type="text" id="direccion_vivienda" value={direccion_vivienda} onChange={(e) => set_direccion_vivienda(e.target.value)} required/>

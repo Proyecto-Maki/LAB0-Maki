@@ -56,6 +56,10 @@ class PersonaListCreate(generics.ListCreateAPIView):
                 # Si no es mayor de edad y no tiene cabeza de familia, se lanza un error
                 raise ValidationError("La persona debe ser mayor de edad o tener un cabeza de familia mayor de edad asignado.")
             
+class PersonaDetail(generics.RetrieveAPIView):
+    permission_classes = [AllowAny]
+    queryset = Persona.objects.all()
+    serializer_class = PersonaSerializer
 
 class PersonaMayoresEdad(generics.ListAPIView):
     serializer_class = PersonaSerializer
