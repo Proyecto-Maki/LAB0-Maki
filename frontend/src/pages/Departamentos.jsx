@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import api from "../api";
 import Departamento from "../components/Departamento/Departamento";
 import DepartamentoForm from "../components/Departamento/DepartamentoForm"
-import DepartamentoFormEdit from "../components/Departamento/DepartamentoFormEdit";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import "../styles/Departamento/Departamentos.css";
@@ -11,7 +10,7 @@ import "../styles/Departamento/Departamentos.css";
 function Departamentos(){
     const [departamentos, set_departamentos] = useState([]);
     const [regiones, set_regiones] = useState([]);
-    const [departamentos__por_region, set_departamentos_por_region] = useState([]);
+    const [departamentos_por_region, set_departamentos_por_region] = useState([]);
     const [id_region, set_id_region] = useState("");
 
 
@@ -27,13 +26,13 @@ function Departamentos(){
         api
             .get("/api/regiones/")
             .then((res) => res.data)
-            .then((data) => { set_regiones(data), console.log("Regiones", data) })
+            .then((data) => { set_regiones(data), console.log("Regiones 2", data) })
             .catch((err) => alert(err));
     };
 
-    const get_departamentos_por_region = (id_departamento) => {
+    const get_departamentos_por_region = (id_region) => {
         api
-            .get(`/api/departamentos/region/${id_departamento}`)
+            .get(`/api/departamentos/region/${id_region}`)
             .then((res) => res.data)
             .then((data) => { set_departamentos_por_region(data), console.log("Departamentos_por_region", id_region, data) })
             .catch((err) => alert(err));
@@ -58,7 +57,8 @@ function Departamentos(){
 
     useEffect(() => {
         get_departamentos();
-        get_departamentos_por_departamento(id_departamento);
+        get_regiones();
+        // get_departamentos_por_region(id_region);
     }, []);
 
     return(
@@ -71,8 +71,14 @@ function Departamentos(){
                 </div>
             </div>
             <div className="departamentos-list">
-                <select>
-
+                <div className="departamentos-list-title">Lista de departamentos</div>
+                <select onChange={(e) => set_id_region(e.target.value)}>
+                    <option value="">Seleccione una región</option>
+                    {
+                        regiones.map((region) => (
+                            <option key={region.id_region} value={region.id_region} onClick={() => get_departamentos_por_region(region.id_region)}>{region.id_region} {region.nombre_region}</option>
+                        ))
+                    }
                 </select>
                     {
                         departamentos.map((departamento) => (
