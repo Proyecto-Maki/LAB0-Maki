@@ -62,7 +62,9 @@ function Municipios(){
         <div className="municipios">
             <Header />
             <div className="municipios-container">
-                <div className="municipios-title">Municipios</div>
+                <div className="municipios-title">
+                    <h1>Municipios</h1>
+                </div>
                 <div className="form-container-m">
                     <MunicipioForm 
                         get_municipios={get_municipios}

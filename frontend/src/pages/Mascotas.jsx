@@ -49,20 +49,32 @@ function Mascotas() {
     }, []);
 
     return (
-        <div className="mascotas-container">
+        <div className="mascotas" style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
             <Header />
-            <h1>Mascotas</h1>
-            <MascotaForm get_mascotas={get_mascotas} get_viviendas={viviendas}/>
-            <div className="mascotas">
-                {mascotas.map((mascota) => (
-                    <Mascota
-                        key={mascota.id_mascota}
-                        mascota={mascota}
+            <div className="mascotas-container" style={{ flex: 1 }}>
+                <div className="mascotas-title">
+                    <h1>Mascotas</h1>
+                </div>
+                <div className="form-container-m">
+                    <MascotaForm 
                         get_mascotas={get_mascotas}
                         get_viviendas={viviendas}
-                        deleteMascota={delete_mascota}
                     />
-                ))}
+                </div>
+            </div>
+            <div className="mascotas-list">
+                <div className="mascotas-list-title">Lista de mascotas</div>
+                {
+                    mascotas.map((mascota) => (
+                        <Mascota
+                            key={mascota.id_mascota}
+                            mascota={mascota}
+                            get_mascotas={get_mascotas}
+                            get_viviendas={viviendas}
+                            deleteMascota={delete_mascota}
+                        />
+                    ))
+                }
             </div>
             <Footer />
         </div>
