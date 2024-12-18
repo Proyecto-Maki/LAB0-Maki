@@ -10,6 +10,7 @@ import Footer from "../components/Footer";
 function Personas() {
     const [personas, set_personas] = useState([]);
     const [mayoresEdad, set_mayoresEdad] = useState([]);
+    const [viviendas, set_viviendas] = useState([]);
     // const [id_persona, set_id_persona] = useState("");
     // const [nombre_1_persona, set_nombre_1_persona] = useState("");
     // const [nombre_2_persona, set_nombre_2_persona] = useState("");
@@ -34,6 +35,14 @@ function Personas() {
             .get("/api/personas/mayores_edad/")
             .then((res) => res.data)
             .then((data) => { set_mayoresEdad(data), console.log("Mayores", data) })
+            .catch((err) => alert(err));
+    }
+
+    const get_viviendas = () => {
+        api
+            .get("/api/persona/vivienda/")
+            .then((res) => res.data)
+            .then((data) => { set_viviendas(data), console.log("Viviendas", data) })
             .catch((err) => alert(err));
     }
 
@@ -101,6 +110,7 @@ function Personas() {
     useEffect(() => {
         get_personas();
         get_mayores_edad();
+        get_viviendas();
     }, [])
 
     return (
@@ -112,7 +122,7 @@ function Personas() {
                     <h1>Personas</h1>
                 </div>
                 <div className = "form-container-p">
-                    <PersonaForm get_personas={get_personas} get_mayores_edad={mayoresEdad} />
+                    <PersonaForm get_personas={get_personas} get_mayores_edad={mayoresEdad} get_viviendas={viviendas} />
                 </div>
             </div>
             

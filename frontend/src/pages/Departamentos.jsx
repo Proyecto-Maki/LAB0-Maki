@@ -58,7 +58,7 @@ function Departamentos(){
     useEffect(() => {
         get_departamentos();
         get_regiones();
-        // get_departamentos_por_region(id_region);
+        //get_departamentos_por_region(id_region);
     }, []);
 
     return(
@@ -72,16 +72,22 @@ function Departamentos(){
             </div>
             <div className="departamentos-list">
                 <div className="departamentos-list-title">Lista de departamentos</div>
-                <select onChange={(e) => set_id_region(e.target.value)}>
+                {/* <select onChange={(e) => {
+                    set_id_region(e.target.value)
+                    console.log("ID Region", e.target.value)
+                    get_departamentos_por_region(e.target.value)
+                    console.log(departamentos_por_region)
+                }}>
                     <option value="">Seleccione una región</option>
                     {
                         regiones.map((region) => (
                             <option key={region.id_region} value={region.id_region} onClick={() => get_departamentos_por_region(region.id_region)}>{region.id_region} {region.nombre_region}</option>
                         ))
                     }
-                </select>
+                </select> */}
+                    
                     {
-                        departamentos_por_region.map((departamento) => (
+                        departamentos.map((departamento) => (
                             <Departamento
                                 key={departamento.id_departamento}
                                 departamento={departamento}

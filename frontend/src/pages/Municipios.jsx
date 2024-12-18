@@ -72,12 +72,12 @@ function Municipios(){
             </div>
             <div className="municipios-list">
                 <div className="municipios-list-title">Lista de municipios</div>
-                <select onChange={(e) => {set_id_departamento(e.target.value); get_municipios_por_departamento(e.target.value)}}>
+                {/* <select onChange={(e) => {set_id_departamento(e.target.value); get_municipios_por_departamento(e.target.value)}}>
                     <option value="">Seleccione un departamento</option>
                     {departamentos.map((departamento) => (
                         <option key={departamento.id} value={departamento.id}>{departamento.nombre}</option>
                     ))}
-                </select>
+                </select> */}
                     {
                         municipios.map((municipio) => (
                             <Municipio

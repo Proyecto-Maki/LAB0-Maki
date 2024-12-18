@@ -3,7 +3,7 @@ import api from '../../api';
 import { useNavigate } from 'react-router-dom';
 import '../../styles/Persona/PersonaForm.css';
 
-function PersonaForm({ get_personas, get_mayores_edad }) {
+function PersonaForm({ get_personas, get_mayores_edad, get_viviendas }) {
     const [id_persona, set_id_persona] = useState("");
     const [nombre_1_persona, set_nombre_1_persona] = useState("");
     const [nombre_2_persona, set_nombre_2_persona] = useState("");
@@ -14,6 +14,7 @@ function PersonaForm({ get_personas, get_mayores_edad }) {
     const [telefono_persona, set_telefono_persona] = useState("");
     const [correo_persona, set_correo_persona] = useState("");
     const [id_cabeza_familia, set_id_cabeza_familia] = useState("");
+    const [id_vivienda, set_id_vivienda] = useState("");
 
 
     const navigate = useNavigate();
@@ -32,7 +33,14 @@ function PersonaForm({ get_personas, get_mayores_edad }) {
             correo_persona: correo_persona,
             id_cabeza_familia: id_cabeza_familia || null,
         };
+
+        const vivienda = {
+            id_vivienda: id_vivienda,
+            id_persona: id_persona,
+        }
+
         console.log(nueva_persona);
+        console.log(vivienda);
 
         api
             .post("/api/personas/", nueva_persona)
@@ -57,6 +65,22 @@ function PersonaForm({ get_personas, get_mayores_edad }) {
             .catch((err) => {
                 console.log(err.response.data);
                 alert("Error al crear la persona");
+            });
+
+        api
+            .post("/api/persona/vivienda/", vivienda)
+            .then((res) => {
+                if (res.status === 201) {
+                    alert("Vivienda asignada");
+                } else {
+                    alert("Error al asignar vivienda");
+                }
+                get_viviendas();
+                set_id_vivienda("");
+            })
+            .catch(() => {
+                console.log(err.response.data);
+                alert("Error al asignar vivienda");
             });
     }
 
@@ -114,7 +138,17 @@ function PersonaForm({ get_personas, get_mayores_edad }) {
                     ))}
                 </select>
             </div>
-            
+            <div className='form-container-agr'>
+                <label htmlFor="id_vivienda">ID Vivienda</label>
+                <select id="id_vivienda" value={id_vivienda} onChange={(e) => set_id_vivienda(e.target.value)}>
+                    <option value="">Seleccione la vivienda</option>
+                    { get_viviendas.map((vivienda) => (
+                        <option key={vivienda.id_vivienda} value={vivienda.id_vivienda}>
+                            {vivienda.id_vivienda} {vivienda.direccion_vivienda} {vivienda.nombre_municipio} {vivienda.nombre_departamento}
+                        </option>
+                    ))}
+                </select>
+            </div>
             <button className='form-container-p-botton' type="submit">Crear persona</button>
         </form>
     );
