@@ -57,7 +57,15 @@ function ViviendaForm({get_viviendas, get_personas, get_municipios}){
             </div>
             <div className="form-group-vivienda">
                 <label htmlFor="estrato_vivienda">Estrato</label>
-                <input type="text" id="estrato_vivienda" value={estrato_vivienda} onChange={(e) => set_estrato_vivienda(e.target.value)} required/>
+                {/* <input type="text" id="estrato_vivienda" value={estrato_vivienda} onChange={(e) => set_estrato_vivienda(e.target.value)} required/> */}
+                <select id="estrato_vivienda" value={estrato_vivienda} onChange={(e) => set_estrato_vivienda(parseInt(e.target.value))} required>
+                    <option value="1">Estrato 1</option> 
+                    <option value="2">Estrato 2</option>
+                    <option value="3">Estrato 3</option>
+                    <option value="4">Estrato 4</option>
+                    <option value="5">Estrato 5</option>
+                    <option value="6">Estrato 6</option>
+                </select>
             </div>
             <div className="form-group-vivienda">
                 <label htmlFor="id_municipio">Municipio</label>
