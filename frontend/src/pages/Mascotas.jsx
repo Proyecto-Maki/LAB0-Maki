@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import api from "../api";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import "../styles/Mascota/Mascotas.css";
-import Mascota from "../components/Mascota/Mascota";
 import MascotaForm from "../components/Mascota/MascotaForm";
+import Mascota from "../components/Mascota/Mascota";
+import "../styles/Mascota/Mascotas.css"; // Corrige la ruta del archivo CSS
 
 
 function Mascotas() {

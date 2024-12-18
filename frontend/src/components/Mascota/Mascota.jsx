@@ -30,14 +30,16 @@ function Mascota ({mascota, get_mascotas, get_viviendas, deleteMascota}){
 
             {
                 isEditarOpen && (
-                    <div>
-                        <MascotaFormEdit
-                            isEditarOpen={isEditarOpen}
-                            cerrarEditar={cerrarEditar}
-                            mascota={mascota}
-                            get_mascotas={get_mascotas}
-                            get_viviendas={get_viviendas}
-                        />
+                    <div className="modal-editar-mascota">
+                        <div className="modal-editar-mascota-content">
+                            <MascotaFormEdit
+                                isEditarOpen={isEditarOpen}
+                                cerrarEditar={cerrarEditar}
+                                mascota={mascota}
+                                get_mascotas={get_mascotas}
+                                get_viviendas={get_viviendas}
+                            />
+                        </div>
                     </div>
                 )
             }
