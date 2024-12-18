@@ -27,7 +27,7 @@ function MunicipioForm({get_municipios, get_departamentos}){
                     } else {
                         alert("Error al crear el departamento");
                     }
-                    get_departamentos();
+                    get_municipios();
                     set_nombre_municipio("");
                     set_id_departamento("");
                 })

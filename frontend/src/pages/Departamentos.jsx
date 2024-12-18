@@ -65,8 +65,8 @@ function Departamentos(){
         <div className="departamentos">
             <Header />
             <div className="departamentos-container">
-                <div className="departamentos-title">departamentos</div>
-                <div className="form-container-r">
+                <div className="departamentos-title">Departamentos</div>
+                <div className="form-container-d">
                     <DepartamentoForm get_departamentos={get_departamentos} get_regiones={regiones} />
                 </div>
             </div>
