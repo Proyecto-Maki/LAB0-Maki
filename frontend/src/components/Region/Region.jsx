@@ -26,13 +26,15 @@ function Region({ region, get_regiones, deleteRegion }) {
                 <button className="region-container-button-el" onClick={() => deleteRegion(region.id_region)}>Eliminar</button>
             </div>
             {isEditarOpen && (
-                <div>
-                    <RegionFormEdit
-                        isEditarOpen={isEditarOpen}
-                        cerrarEditar={cerrarEditar}
-                        region={region}
-                        get_regiones={get_regiones}
-                    />
+                <div className="modal-editar-region">
+                    <div className="modal-editar-region-content">
+                        <RegionFormEdit
+                            isEditarOpen={isEditarOpen}
+                            cerrarEditar={cerrarEditar}
+                            region={region}
+                            get_regiones={get_regiones}
+                        />
+                    </div>
                 </div>
             )}
         </div>

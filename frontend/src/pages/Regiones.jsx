@@ -8,6 +8,7 @@ import "../styles/Region/Regiones.css";
 
 function Regiones() {
     const [regiones, set_regiones] = useState([]);
+    const [isEditarOpen, setIsEditarOpen] = useState(false);
 
     const get_regiones = () => {
         api
@@ -45,9 +46,11 @@ function Regiones() {
                 <div className="regiones-title">
                     <h1>Regiones</h1>
                 </div>
-                <div className="form-container-r">
-                    <RegionForm get_regiones={get_regiones} />
-                </div>
+                {!isEditarOpen && (
+                    <div className="form-container-r">
+                        <RegionForm get_regiones={get_regiones} />
+                    </div>
+                )}
             </div>
             <div className="regiones-list">
                 {regiones.map((region) => (

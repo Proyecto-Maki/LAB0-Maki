@@ -35,7 +35,7 @@ function RegionFormEdit({ isEditarOpen, cerrarEditar, region, get_regiones }) {
             <div className="modal-editar-region">
                 <div className="modal-editar-region-content">
                     <span className="close" onClick={cerrarEditar}>&times;</span>
-                    <form onSubmit={editarRegion} className='form-container-region'>
+                    <form onSubmit={editarRegion}>
                         <h2 className='form-container-h2'>Editar Región</h2>
                         <div className='form-container-agr'>
                             <label htmlFor="nombre_region">Nombre</label>
