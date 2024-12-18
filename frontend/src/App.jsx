@@ -11,6 +11,7 @@ import Regiones from "./pages/Regiones"
 import Departamentos from "./pages/Departamentos"
 import Municipios from "./pages/Municipios"
 import Viviendas from "./pages/Viviendas"
+import SobreNosotros from "./pages/SobreNosotros"
 
 function Logout(){
   localStorage.clear()
@@ -45,6 +46,7 @@ function App() {
           <Route path = "/departamentos" element = {<Departamentos />} />
           <Route path = "/municipios" element = {<Municipios />} />
           <Route path = "/viviendas" element = {<Viviendas />} />
+          <Route path = "/sobre-nosotros" element = {<SobreNosotros />} />
           <Route path="*" element={<NotFound/>}></Route>
         </Routes>
       </BrowserRouter>
