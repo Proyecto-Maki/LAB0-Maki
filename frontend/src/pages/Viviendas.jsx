@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import api from "../api";
 import Vivienda from "../components/Vivienda/Vivienda";
-import ViviendaForm from "../components/Vivienda/ViviendaForm"
+import ViviendaForm from "../components/Vivienda/ViviendaForm";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import "../styles/Vivienda/Viviendas.css";
 
-function Viviendas(){
+function Viviendas() {
     const [viviendas, set_viviendas] = useState([]);
     const [municipios, set_municipios] = useState([]);
     const [viviendas_por_municipio, set_viviendas_por_municipio] = useState([]);
@@ -80,18 +80,18 @@ function Viviendas(){
         // get_viviendas_por_persona(id_persona);
     }, []);
 
-    return(
+    return (
         <div className="viviendas">
             <Header />
             <div className="viviendas-container">
-                <div className="viviendas-title">Viviendas</div>
+                <div className="viviendas-title">
+                    <h1>Viviendas</h1>
+                </div>
                 <div className="form-container-v">
                     <ViviendaForm 
                         get_viviendas={get_viviendas} 
                         get_personas={personas}
                         get_municipios={municipios}
-                        
-
                     />
                 </div>
             </div>
@@ -117,10 +117,9 @@ function Viviendas(){
                         ))
                     }
                 </div>
+            <Footer />
         </div>
     );
-
-
 }
 
 export default Viviendas;

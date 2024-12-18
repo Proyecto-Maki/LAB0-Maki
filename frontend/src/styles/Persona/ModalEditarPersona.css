@@ -21,6 +21,7 @@
     padding: 20px;
     width: 40%;
     border-radius: 10px;
+    position: relative;
 }
 
 .close {
@@ -49,4 +50,22 @@
     cursor: pointer;
     transition: background-color 0.2s ease-in-out;
     font-weight: 600;
+}
+
+.modal-editar-persona-content .close {
+    position: absolute; /* Changed to absolute to stay in the form container */
+    top: 20px; /* Adjust as needed */
+    right: 70px; /* Adjust as needed */
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.form-container-persona .close {
+    position: absolute;
+    top: 20px; /* Adjust as needed */
+    right: 20px; /* Adjusted to be more to the right */
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1000;
 }

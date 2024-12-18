@@ -1,18 +1,16 @@
 import { useState, useEffect } from "react";
 import api from "../api";
 import Departamento from "../components/Departamento/Departamento";
-import DepartamentoForm from "../components/Departamento/DepartamentoForm"
+import DepartamentoForm from "../components/Departamento/DepartamentoForm";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import "../styles/Departamento/Departamentos.css";
 
-
-function Departamentos(){
+function Departamentos() {
     const [departamentos, set_departamentos] = useState([]);
     const [regiones, set_regiones] = useState([]);
     const [departamentos_por_region, set_departamentos_por_region] = useState([]);
     const [id_region, set_id_region] = useState("");
-
 
     const get_departamentos = () => {
         api
@@ -26,9 +24,9 @@ function Departamentos(){
         api
             .get("/api/regiones/")
             .then((res) => res.data)
-            .then((data) => { set_regiones(data), console.log("Regiones 2", data) })
+            .then((data) => { set_regiones(data), console.log("Regiones", data) })
             .catch((err) => alert(err));
-    };
+    }
 
     const get_departamentos_por_region = (id_region) => {
         api
@@ -58,49 +56,44 @@ function Departamentos(){
     useEffect(() => {
         get_departamentos();
         get_regiones();
-        //get_departamentos_por_region(id_region);
     }, []);
 
-    return(
+    return (
         <div className="departamentos">
             <Header />
             <div className="departamentos-container">
-                <div className="departamentos-title">Departamentos</div>
+                <div className="departamentos-title">
+                    <h1>Departamentos</h1>
+                </div>
                 <div className="form-container-d">
-                    <DepartamentoForm get_departamentos={get_departamentos} get_regiones={regiones} />
+                    <DepartamentoForm 
+                        get_departamentos={get_departamentos}
+                        get_regiones={regiones}
+                    />
                 </div>
             </div>
             <div className="departamentos-list">
                 <div className="departamentos-list-title">Lista de departamentos</div>
-                {/* <select onChange={(e) => {
-                    set_id_region(e.target.value)
-                    console.log("ID Region", e.target.value)
-                    get_departamentos_por_region(e.target.value)
-                    console.log(departamentos_por_region)
-                }}>
+                {/* <select onChange={(e) => {set_id_region(e.target.value); get_departamentos_por_region(e.target.value)}}>
                     <option value="">Seleccione una región</option>
-                    {
-                        regiones.map((region) => (
-                            <option key={region.id_region} value={region.id_region} onClick={() => get_departamentos_por_region(region.id_region)}>{region.id_region} {region.nombre_region}</option>
-                        ))
-                    }
+                    {regiones.map((region) => (
+                        <option key={region.id} value={region.id}>{region.nombre}</option>
+                    ))}
                 </select> */}
-                    
                     {
                         departamentos.map((departamento) => (
                             <Departamento
-                                key={departamento.id_departamento}
+                                key={departamento.id}
                                 departamento={departamento}
                                 get_departamentos={get_departamentos}
                                 deleteDepartamento={delete_departamento}
                             />
                         ))
                     }
-                </div>
+            </div>
             <Footer />
         </div>
     );
-
 }
 
 export default Departamentos;

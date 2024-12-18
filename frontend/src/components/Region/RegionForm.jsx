@@ -1,16 +1,16 @@
 import { useState } from 'react';
 import api from '../../api';
-import { useNavigate } from 'react-router-dom';
 import '../../styles/Region/RegionForm.css';
 
-function RegionForm({get_regiones}){
+function RegionForm({ get_regiones }) {
     const [nombre_region, set_nombre_region] = useState("");
-    const navigate = useNavigate();
+    const [descripcion_region, set_descripcion_region] = useState("");
 
     const create_region = async (e) => {
         e.preventDefault();
         const nueva_region = {
-            nombre_region: nombre_region,
+            nombre_region,
+            descripcion_region,
         };
         console.log(nueva_region);
 
@@ -24,32 +24,28 @@ function RegionForm({get_regiones}){
                 }
                 get_regiones();
                 set_nombre_region("");
+                set_descripcion_region("");
             })
             .catch((err) => {
                 console.log(err.response.data);
                 alert("Error al crear la región");
             });
-
     }
 
-
-    return(
-        <form className="region-form" onSubmit={create_region}>
-            <h2>Crear Región</h2>
-            <div className="region-form-group">
-                <label>Nombre de la región</label>
-                <input
-                    type="text"
-                    value={nombre_region}
-                    onChange={(e) => set_nombre_region(e.target.value)}
-                    required
-                />
+    return (
+        <form onSubmit={create_region} className='form-container-region'>
+            <h2 className='form-container-h2'>Crear una Región</h2>
+            <div className='form-container-agr'>
+                <label htmlFor="nombre_region">Nombre</label>
+                <input type="text" id="nombre_region" value={nombre_region} onChange={(e) => set_nombre_region(e.target.value)} required />
             </div>
-            <button type="submit">Crear región</button>
-
+            <div className='form-container-agr'>
+                <label htmlFor="descripcion_region">Descripción</label>
+                <input type="text" id="descripcion_region" value={descripcion_region} onChange={(e) => set_descripcion_region(e.target.value)} required />
+            </div>
+            <button className='form-container-r-button' type="submit">Crear región</button>
         </form>
     );
-
 }
 
 export default RegionForm;

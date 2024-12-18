@@ -1,40 +1,21 @@
-.mascotas-container {
-    position: relative;
-    width: 100%;
-    height: 110vh;
-    background-image: url('../img/colombia-4878723_1920.jpg');
-    background-size: cover;
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    background-position: center; /* Centra la imagen */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
-.mascotas-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.5); /* Capa blanca semitransparente con opacidad ajustada */
-    z-index: 1;
-}
-
-.mascotas-container > * {
-    position: relative;
-    z-index: 2;
-}
+/* ...existing code... */
 
 .mascotas-title {
-    margin-bottom: 20px; /* Ajusta el valor según sea necesario */
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
-.construction-message {
-    font-size: 1.2em;
-    color: #333;
+.mascotas-title h1 {
+    padding-top: 0.5em;
+    font-size: 4em;
+    font-weight: 700;
+    color: #ffffff;
     text-align: center;
+    text-shadow: 2px 2px 4px #000000;
 }
+
+/* ...existing code... */

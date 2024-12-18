@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import api from "../../api";
-import "../../styles/Mascota/ModalEditarMascota.css";
+//import "../../styles/Mascota/ModalEditarMascota.css";
 
 function MascotaFormEdit({isEditarOpen, cerrarEditar, mascota, get_mascotas, get_viviendas}){
     const [id_mascota, set_id_mascota] = useState(mascota.id_mascota);
