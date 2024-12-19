@@ -73,22 +73,17 @@ function Departamentos() {
                 </div>
             </div>
             <div className="departamentos-list">
-                {/* <select onChange={(e) => {set_id_region(e.target.value); get_departamentos_por_region(e.target.value)}}>
-                    <option value="">Seleccione una región</option>
-                    {regiones.map((region) => (
-                        <option key={region.id} value={region.id}>{region.nombre}</option>
-                    ))}
-                </select> */}
-                    {
-                        departamentos.map((departamento) => (
-                            <Departamento
-                                key={departamento.id}
-                                departamento={departamento}
-                                get_departamentos={get_departamentos}
-                                deleteDepartamento={delete_departamento}
-                            />
-                        ))
-                    }
+                {
+                    departamentos.map((departamento) => (
+                        <Departamento
+                            key={departamento.id_departamento}
+                            departamento={departamento}
+                            get_departamentos={get_departamentos}
+                            deleteDepartamento={delete_departamento}
+                            get_regiones={regiones} // Ensure get_regiones is passed correctly
+                        />
+                    ))
+                }
             </div>
             <Footer />
         </div>

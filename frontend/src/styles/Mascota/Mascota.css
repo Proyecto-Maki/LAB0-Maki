@@ -13,6 +13,11 @@
     margin: 10px;
 }
 
+.mascota-icon {
+    margin-right: 10px;
+    font-size: 50px;
+}
+
 .mascota-info {
     display: flex;
     flex-direction: column;
