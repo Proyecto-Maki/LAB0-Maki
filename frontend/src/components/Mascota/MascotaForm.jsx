@@ -7,7 +7,7 @@ function MascotaForm ({get_mascotas, get_viviendas}){
     const [nombre_mascota, set_nombre_mascota] = useState("");
     const [especie_mascota, set_especie_mascota] = useState("");
     const [raza_mascota, set_raza_mascota] = useState("");
-    const [sexo_mascota, set_sexo_mascota] = useState("");
+    const [sexo_mascota, set_sexo_mascota] = useState("M");
     const [id_vivienda, set_id_vivienda] = useState("");
 
     const navigate = useNavigate();
