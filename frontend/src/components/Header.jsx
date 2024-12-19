@@ -8,6 +8,7 @@ function Header() {
       <header className="header">
         <div className="logo">
           <img src={logo} alt="Logo" className="logo-img" /> {/* Usa la imagen PNG aquí */}
+          <span className="logo-text">Laboratorio 1</span> {/* Texto añadido */}
         </div>
         <nav className="nav">
           <Link to="/" className="nav-link">Inicio</Link>

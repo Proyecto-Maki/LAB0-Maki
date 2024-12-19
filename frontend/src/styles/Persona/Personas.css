@@ -30,7 +30,7 @@ Header{
 .personas-container{
     position: relative;
     width: 100%;
-    height: 110vh;
+    height: auto;
     background-image: url('../../img/colombia-4878723_1920.jpg');
     background-size: cover;
     background-repeat: no-repeat; /* Evita que la imagen se repita */
@@ -77,17 +77,18 @@ Header{
 }
 .form-container-p{
     width: 100%;
-    height: 85vh;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;   
     margin-bottom: 20px; /* Ajusta el valor según sea necesario */
+    flex-grow: 1; /* Ensure the form container expands */
 }
 
 .personas-list{
     width: 100%;
-    height: 100vh;
+    height: auto;
     padding-top: 5em;
     padding-bottom: 5em;
     display: flex;
