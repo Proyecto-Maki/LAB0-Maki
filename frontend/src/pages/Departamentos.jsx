@@ -11,6 +11,7 @@ function Departamentos() {
     const [regiones, set_regiones] = useState([]);
     const [departamentos_por_region, set_departamentos_por_region] = useState([]);
     const [id_region, set_id_region] = useState("");
+    const [personas, set_personas] = useState([]);
 
     const get_departamentos = () => {
         api
@@ -36,6 +37,14 @@ function Departamentos() {
             .catch((err) => alert(err));
     }
 
+    const get_personas = () => {
+        api
+            .get("/api/personas/")
+            .then((res) => res.data)
+            .then((data) => { set_personas(data), console.log("Personas", data) })
+            .catch((err) => alert(err));
+    }
+
     const delete_departamento = (id) => {
         api 
             .delete(`/api/departamentos/delete/${id}/`)
@@ -56,6 +65,7 @@ function Departamentos() {
     useEffect(() => {
         get_departamentos();
         get_regiones();
+        get_personas();
     }, []);
 
     return (
@@ -73,22 +83,18 @@ function Departamentos() {
                 </div>
             </div>
             <div className="departamentos-list">
-                {/* <select onChange={(e) => {set_id_region(e.target.value); get_departamentos_por_region(e.target.value)}}>
-                    <option value="">Seleccione una región</option>
-                    {regiones.map((region) => (
-                        <option key={region.id} value={region.id}>{region.nombre}</option>
-                    ))}
-                </select> */}
-                    {
-                        departamentos.map((departamento) => (
-                            <Departamento
-                                key={departamento.id}
-                                departamento={departamento}
-                                get_departamentos={get_departamentos}
-                                deleteDepartamento={delete_departamento}
-                            />
-                        ))
-                    }
+                {
+                    departamentos.map((departamento) => (
+                        <Departamento
+                            key={departamento.id_departamento}
+                            departamento={departamento}
+                            get_departamentos={get_departamentos}
+                            deleteDepartamento={delete_departamento}
+                            get_regiones={regiones} // Ensure get_regiones is passed correctly
+                            get_personas={personas} // Pass get_personas to Departamento component
+                        />
+                    ))
+                }
             </div>
             <Footer />
         </div>

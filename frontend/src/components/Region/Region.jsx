@@ -19,7 +19,7 @@ function Region({ region, get_regiones, deleteRegion }) {
             <div className='region-info'>
                 <p className='region-id'>ID: {region.id_region}</p>
                 <p className='region-label'>Nombre: {region.nombre_region}</p>
-                <p className='region-label'>Descripción: {region.descripcion_region}</p>
+                {/* Remove the description display */}
             </div>
             <div className="region-buttons">
                 <button className="region-container-button-ed" onClick={abrirEditar}>Editar</button>

@@ -11,6 +11,7 @@ function Municipios(){
     const [departamentos, set_departamentos] = useState([]);
     const [municipios_por_departamento, set_municipios_por_departamento] = useState([]);
     const [id_departamento, set_id_departamento] = useState("");
+    const [personas, set_personas] = useState([]);
 
     const get_municipios = () => {
         api
@@ -36,6 +37,14 @@ function Municipios(){
             .catch((err) => alert(err));
     }
 
+    const get_personas = () => {
+        api
+            .get("/api/personas/")
+            .then((res) => res.data)
+            .then((data) => { set_personas(data), console.log("Personas", data) })
+            .catch((err) => alert(err));
+    }
+
     const delete_municipio = (id) => {
         api 
             .delete(`/api/municipios/delete/${id}/`)
@@ -56,6 +65,7 @@ function Municipios(){
     useEffect(() => {
         get_municipios();
         get_departamentos();
+        get_personas();
     }, []);
 
     return(
@@ -73,23 +83,18 @@ function Municipios(){
                 </div>
             </div>
             <div className="municipios-list">
-                <div className="municipios-list-title">Lista de municipios</div>
-                {/* <select onChange={(e) => {set_id_departamento(e.target.value); get_municipios_por_departamento(e.target.value)}}>
-                    <option value="">Seleccione un departamento</option>
-                    {departamentos.map((departamento) => (
-                        <option key={departamento.id} value={departamento.id}>{departamento.nombre}</option>
-                    ))}
-                </select> */}
-                    {
-                        municipios.map((municipio) => (
-                            <Municipio
-                                key={municipio.id}
-                                municipio={municipio}
-                                get_municipios={get_municipios}
-                                deleteMunicipio={delete_municipio}
-                            />
-                        ))
-                    }
+                {
+                    municipios.map((municipio) => (
+                        <Municipio
+                            key={municipio.id_municipio}
+                            municipio={municipio}
+                            get_municipios={get_municipios}
+                            deleteMunicipio={delete_municipio}
+                            get_departamentos={departamentos} // Ensure get_departamentos is passed correctly
+                            get_personas={personas} // Pass get_personas to Municipio component
+                        />
+                    ))
+                }
             </div>
             <Footer />
         </div>

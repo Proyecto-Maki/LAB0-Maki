@@ -4,13 +4,11 @@ import '../../styles/Region/RegionForm.css';
 
 function RegionForm({ get_regiones }) {
     const [nombre_region, set_nombre_region] = useState("");
-    const [descripcion_region, set_descripcion_region] = useState("");
 
     const create_region = async (e) => {
         e.preventDefault();
         const nueva_region = {
             nombre_region,
-            descripcion_region,
         };
         console.log(nueva_region);
 
@@ -24,7 +22,6 @@ function RegionForm({ get_regiones }) {
                 }
                 get_regiones();
                 set_nombre_region("");
-                set_descripcion_region("");
             })
             .catch((err) => {
                 console.log(err.response.data);
@@ -38,10 +35,6 @@ function RegionForm({ get_regiones }) {
             <div className='form-container-agr'>
                 <label htmlFor="nombre_region">Nombre</label>
                 <input type="text" id="nombre_region" value={nombre_region} onChange={(e) => set_nombre_region(e.target.value)} required />
-            </div>
-            <div className='form-container-agr'>
-                <label htmlFor="descripcion_region">Descripción</label>
-                <input type="text" id="descripcion_region" value={descripcion_region} onChange={(e) => set_descripcion_region(e.target.value)} required />
             </div>
             <button className='form-container-r-button' type="submit">Crear región</button>
         </form>
