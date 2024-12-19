@@ -44,9 +44,9 @@ urlpatterns = [
     
     path('viviendas/<int:id_municipio>/<int:id_departamento>/', views.ViviendaMunicipioDepartamento.as_view(), name='vivienda_municipio_departamento'),
 
-    path('persona/vivienda/', views.PersonaResideViviendaListCreate.as_view(), name="persona_vivienda"),
-    path('persona/vivienda/delete/<str:id_persona>/<int:id_vivienda>/', views.PersonaResideViviendaDelete.as_view(), name="eliminar_persona_vivienda"),
-    path('persona/vivienda/update/<str:id_persona>/int:id_vivienda/', views.PersonaResideViviendaUpdate.as_view(), name="actualizar_persona_vivienda"),
+    path('residencia/', views.PersonaResideViviendaListCreate.as_view(), name="persona_vivienda"),
+    path('residencia/delete/<str:id_persona>/<int:id_vivienda>/', views.PersonaResideViviendaDelete.as_view(), name="eliminar_persona_vivienda"),
+    path('residencia/update/<str:id_persona>/int:id_vivienda/', views.PersonaResideViviendaUpdate.as_view(), name="actualizar_persona_vivienda"),
 
     
 ]

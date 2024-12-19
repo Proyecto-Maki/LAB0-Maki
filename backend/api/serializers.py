@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
-from .models import Persona, Region, Departamento, Municipio, Vivienda, Mascota
+from .models import Persona, Region, Departamento, Municipio, Vivienda, Mascota, PersonaResideVivienda
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -54,7 +54,7 @@ class MascotaSerializer(serializers.ModelSerializer):
 
 class PersonaResideViviendaSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Persona
+        model = PersonaResideVivienda
         fields = ["id_persona", "id_vivienda"]
 
 

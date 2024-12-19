@@ -40,13 +40,14 @@ function PersonaForm({ get_personas, get_mayores_edad, get_viviendas }) {
         }
 
         console.log(nueva_persona);
-        console.log(vivienda);
+        //console.log(vivienda);
 
         api
             .post("/api/personas/", nueva_persona)
             .then((res) => {
                 if (res.status === 201) {
                     alert("Persona creada");
+                    
                 } else {
                     alert("Error al crear la persona");
                 }
@@ -61,6 +62,8 @@ function PersonaForm({ get_personas, get_mayores_edad, get_viviendas }) {
                 set_telefono_persona("");
                 set_correo_persona("");
                 set_id_cabeza_familia("");
+                print(res);
+                return res;
             })
             .catch((err) => {
                 console.log(err.response.data);
@@ -84,17 +87,17 @@ function PersonaForm({ get_personas, get_mayores_edad, get_viviendas }) {
         //     });
     }
 
-    const create_residencia = async (e) => {
-        e.preventDefault();
+    const create_residencia = async (id_persona) => {
+
         const vivienda = {
-            id_vivienda: id_vivienda,
             id_persona: id_persona,
+            id_vivienda: id_vivienda,
         }
 
         console.log(vivienda);
 
         api
-            .post("/api/persona/vivienda/", vivienda)
+            .post("/api/residencia/", vivienda)
             .then((res) => {
                 if (res.status === 201) {
                     alert("Vivienda asignada");
@@ -103,22 +106,34 @@ function PersonaForm({ get_personas, get_mayores_edad, get_viviendas }) {
                 }
                 get_viviendas();
                 set_id_vivienda("");
+                
             })
-            .catch(() => {
+            .catch((err) => {
                 console.log(err.response.data);
                 alert("Error al asignar vivienda");
             });
     }
 
     const create_complete = async (e) => {
-        e.preventDefault();
-        await create_persona(e);
-        await create_residencia(e);
+        try {
+            const personaResponse = await create_persona(e);
+            if (personaResponse.status === 201) {
+                const id_persona_nuevo = personaResponse.data.id_persona;
+                console.log("ID de persona creada:", id_persona);
+                await create_residencia(id_persona_nuevo);
+                alert("Persona y residencia creadas correctamente");
+            } else {
+                alert("Error al crear persona");
+            }
+        } catch (error) {
+            console.error("Error al crear persona o residencia:", error);
+            alert("Error al crear persona o residencia");
+        }
     }
 
 
     return (
-        <form onSubmit={create_complete} className='form-container-persona'>
+        <form onSubmit={create_persona} className='form-container-persona'>
             <h2 className='form-container-h2'>Crear una Persona</h2>
             <div className='form-container-agr'>
                 <label htmlFor="id_persona">ID</label>

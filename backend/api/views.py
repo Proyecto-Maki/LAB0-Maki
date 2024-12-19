@@ -311,10 +311,19 @@ class PersonaResideViviendaListCreate(generics.ListCreateAPIView):
     serializer_class = PersonaResideViviendaSerializer
     permission_classes = [AllowAny]
 
-    def get_queryset(self):
-        return PersonaResideVivienda.objects.all()
+    # def get_queryset(self):
+    #     return PersonaResideVivienda.objects.all()
     
     def perform_create(self, serializer):
+        persona = serializer.validated_data["id_persona"]
+        vivienda = serializer.validated_data["id_vivienda"]
+
+        # Validar existencia en base de datos (opcional si ya lo haces en el serializador)
+        if not Persona.objects.filter(id=persona.id).exists():
+            raise ValidationError("La persona no existe.")
+        if not Vivienda.objects.filter(id=vivienda.id).exists():
+            raise ValidationError("La vivienda no existe.")
+        
         serializer.save()
 
 class PersonaResideViviendaDelete(generics.DestroyAPIView):
