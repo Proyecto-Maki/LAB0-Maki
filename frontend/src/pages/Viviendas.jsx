@@ -96,7 +96,6 @@ function Viviendas() {
                 </div>
             </div>
             <div className="viviendas-list">
-                <div className="viviendas-list-title">Lista de Viviendas</div>
                     {/* <select onChange={(e) => get_viviendas_por_municipio(e.target.value)}>
                         <option value="">Seleccione un municipio</option>
                         {municipios.map((municipio) => (
