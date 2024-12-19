@@ -73,23 +73,17 @@ function Municipios(){
                 </div>
             </div>
             <div className="municipios-list">
-                
-                {/* <select onChange={(e) => {set_id_departamento(e.target.value); get_municipios_por_departamento(e.target.value)}}>
-                    <option value="">Seleccione un departamento</option>
-                    {departamentos.map((departamento) => (
-                        <option key={departamento.id} value={departamento.id}>{departamento.nombre}</option>
-                    ))}
-                </select> */}
-                    {
-                        municipios.map((municipio) => (
-                            <Municipio
-                                key={municipio.id}
-                                municipio={municipio}
-                                get_municipios={get_municipios}
-                                deleteMunicipio={delete_municipio}
-                            />
-                        ))
-                    }
+                {
+                    municipios.map((municipio) => (
+                        <Municipio
+                            key={municipio.id_municipio}
+                            municipio={municipio}
+                            get_municipios={get_municipios}
+                            deleteMunicipio={delete_municipio}
+                            get_departamentos={departamentos} // Ensure get_departamentos is passed correctly
+                        />
+                    ))
+                }
             </div>
             <Footer />
         </div>

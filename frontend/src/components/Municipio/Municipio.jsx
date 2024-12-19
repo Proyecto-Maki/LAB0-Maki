@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../../styles/Municipio/Municipio.css';
 import MunicipioFormEdit from './MunicipioFormEdit';
 
-function Municipio({ municipio, get_municipios, deleteMunicipio }) {
+function Municipio({ municipio, get_municipios, deleteMunicipio, get_departamentos }) {
     const [isEditarOpen, setIsEditarOpen] = useState(false);
 
     const abrirEditar = () => {
@@ -33,6 +33,7 @@ function Municipio({ municipio, get_municipios, deleteMunicipio }) {
                             cerrarEditar={cerrarEditar}
                             municipio={municipio}
                             get_municipios={get_municipios}
+                            get_departamentos={get_departamentos} // Ensure get_departamentos is passed correctly
                         />
                     </div>
                 </div>
