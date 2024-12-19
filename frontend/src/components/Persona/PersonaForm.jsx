@@ -31,7 +31,7 @@ function PersonaForm({ get_personas, get_mayores_edad, get_viviendas }) {
             genero_persona: genero_persona,
             telefono_persona: telefono_persona,
             correo_persona: correo_persona,
-            id_cabeza_familia: id_cabeza_familia || null,
+            id_cabeza_familia: id_cabeza_familia,
         };
 
         const vivienda = {
@@ -67,6 +67,32 @@ function PersonaForm({ get_personas, get_mayores_edad, get_viviendas }) {
                 alert("Error al crear la persona");
             });
 
+        // api
+        //     .post("/api/persona/vivienda/", vivienda)
+        //     .then((res) => {
+        //         if (res.status === 201) {
+        //             alert("Vivienda asignada");
+        //         } else {
+        //             alert("Error al asignar vivienda");
+        //         }
+        //         get_viviendas();
+        //         set_id_vivienda("");
+        //     })
+        //     .catch(() => {
+        //         console.log(err.response.data);
+        //         alert("Error al asignar vivienda");
+        //     });
+    }
+
+    const create_residencia = async (e) => {
+        e.preventDefault();
+        const vivienda = {
+            id_vivienda: id_vivienda,
+            id_persona: id_persona,
+        }
+
+        console.log(vivienda);
+
         api
             .post("/api/persona/vivienda/", vivienda)
             .then((res) => {
@@ -84,8 +110,15 @@ function PersonaForm({ get_personas, get_mayores_edad, get_viviendas }) {
             });
     }
 
+    const create_complete = async (e) => {
+        e.preventDefault();
+        await create_persona(e);
+        await create_residencia(e);
+    }
+
+
     return (
-        <form onSubmit={create_persona} className='form-container-persona'>
+        <form onSubmit={create_complete} className='form-container-persona'>
             <h2 className='form-container-h2'>Crear una Persona</h2>
             <div className='form-container-agr'>
                 <label htmlFor="id_persona">ID</label>

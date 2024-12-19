@@ -50,25 +50,40 @@ function PersonaFormEdit({ isEditarOpen, cerrarEditar, persona, get_personas, ma
     }
 
     const personaCabeza = async (id_cabeza_familia) => {
-        api
-            .get(`/api/persona/${id_cabeza_familia}/`)
-            .then((res) => res.data)
-            .then((data) => { 
-                set_persona_cabeza_nombre(data.nombre_1_persona);
-                set_persona_cabeza_apellido(data.apellido_1_persona);
-                console.log(data);
-                if (res.status === 204) {
-                    alert("Persona traida");
-                } else {
-                    alert("Error al traer la persona");
-                }
-             })
-            .catch((err) => alert(err));
-    }
+        // api
+        //     .get(`/api/persona/${id_cabeza_familia}/`)
+        //     .then((res) => res.data)
+        //     .then((data) => { 
+        //         set_persona_cabeza_nombre(data.nombre_1_persona);
+        //         set_persona_cabeza_apellido(data.apellido_1_persona);
+        //         console.log(data);
+        //         if (res.status === 204) {
+        //             alert("Persona traida");
+        //         } else {
+        //             alert("Error al traer la persona");
+        //         }
+        //      })
+        //     .catch((err) => alert(err));
+        console.log(id_cabeza_familia);
+        // if (!id_cabeza_familia) return;
+        try{
+            const res = await api.get(`/api/persona/${id_cabeza_familia}/`);
+            if (res.status === 200) {
+                set_persona_cabeza_nombre(res.data.nombre_1_persona);
+                set_persona_cabeza_apellido(res.data.apellido_1_persona);
+            } else {
+                alert("Error al traer la persona");
 
-    useEffect(() => {
-        personaCabeza();
-    },[]);
+            } 
+        }catch (error){
+            console.log("Error al traer la persona", error);
+            alert("Error al traer la persona");
+        }
+
+    }
+    // useEffect(() => {
+    //     personaCabeza();
+    // },[id_cabeza_familia]);
 
 
 

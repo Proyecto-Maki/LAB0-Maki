@@ -42,8 +42,15 @@ class PersonaListCreate(generics.ListCreateAPIView):
         if cabeza_familia is None:
             if self.validar_edad(fecha_nacimiento):
                 # Si es mayor de edad, se asigna a sí misma como cabeza de familia
-                serializer.save()
-                serializer.instance.id_cabeza_familia = serializer.instance
+                # serializer.save()
+                # serializer.instance.id_cabeza_familia = serializer.instance
+                # serializer.save()
+
+                instance = serializer.save()
+                # Asignar a sí misma como cabeza de familia
+                instance.id_cabeza_familia = instance
+                # Guardar solo el campo actualizado
+                instance.save(update_fields=["id_cabeza_familia"])
             else:
                 # Si no es mayor de edad y no tiene cabeza de familia, se lanza un error
                 raise ValidationError("La persona debe ser mayor de edad o tener un cabeza de familia mayor de edad asignado.")
