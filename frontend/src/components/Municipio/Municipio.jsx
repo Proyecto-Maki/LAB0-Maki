@@ -14,11 +14,14 @@ function Municipio({ municipio, get_municipios, deleteMunicipio, get_departament
         get_municipios();
     };
 
+    const alcalde = get_personas.find(persona => persona.id_persona === municipio.id_alcalde);
+
     return (
         <div className="municipio-container">
             <div className='municipio-info'>
                 <p className='municipio-id'>ID: {municipio.id_municipio}</p>
                 <p className='municipio-label'>Nombre: {municipio.nombre_municipio}</p>
+                <p className='municipio-label'>Alcalde: {alcalde ? `${alcalde.nombre_1_persona} ${alcalde.apellido_1_persona}` : 'No asignado'}</p>
             </div>
             <div className="municipio-buttons">
                 <button className="municipio-container-button-ed" onClick={abrirEditar}>Editar</button>
