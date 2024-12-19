@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../../styles/Departamento/Departamento.css';
 import DepartamentoFormEdit from './DepartamentoFormEdit';
 
-function Departamento({ departamento, get_departamentos, deleteDepartamento, get_regiones }) {
+function Departamento({ departamento, get_departamentos, deleteDepartamento, get_regiones, get_personas }) {
     const [isEditarOpen, setIsEditarOpen] = useState(false);
 
     const abrirEditar = () => {
@@ -34,6 +34,7 @@ function Departamento({ departamento, get_departamentos, deleteDepartamento, get
                             departamento={departamento}
                             get_departamentos={get_departamentos}
                             get_regiones={get_regiones} // Ensure get_regiones is passed correctly
+                            get_personas={get_personas} // Pass get_personas to DepartamentoFormEdit
                         />
                     </div>
                 </div>

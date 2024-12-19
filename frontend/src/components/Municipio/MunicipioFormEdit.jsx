@@ -2,9 +2,10 @@ import { useState } from 'react';
 import api from '../../api';
 import '../../styles/Municipio/ModalEditarMunicipio.css';
 
-function MunicipioFormEdit({ isEditarOpen, cerrarEditar, municipio, get_municipios, get_departamentos }) {
+function MunicipioFormEdit({ isEditarOpen, cerrarEditar, municipio, get_municipios, get_departamentos, get_personas }) {
     const [nombre_municipio, set_nombre_municipio] = useState(municipio.nombre_municipio);
     const [id_departamento, set_id_departamento] = useState(municipio.id_departamento);
+    const [id_alcalde, set_id_alcalde] = useState(municipio.id_alcalde); // New state for id_alcalde
 
     const editarMunicipio = async (e) => {
         e.preventDefault();
@@ -12,6 +13,7 @@ function MunicipioFormEdit({ isEditarOpen, cerrarEditar, municipio, get_municipi
         const updated_municipio = {
             nombre_municipio,
             id_departamento,
+            id_alcalde, // Include id_alcalde in the updated data
         };
 
         console.log(updated_municipio);
@@ -47,6 +49,15 @@ function MunicipioFormEdit({ isEditarOpen, cerrarEditar, municipio, get_municipi
                                 <option value="">Seleccione un departamento</option>
                                 {get_departamentos.map((departamento) => (
                                     <option key={departamento.id_departamento} value={departamento.id_departamento}>{departamento.nombre_departamento}</option>
+                                ))}
+                            </select>
+                        </div>
+                        <div className='form-container-agr'>
+                            <label htmlFor="id_alcalde">Alcalde</label>
+                            <select id="id_alcalde" value={id_alcalde} onChange={(e) => set_id_alcalde(e.target.value)} required>
+                                <option value="">Seleccione un alcalde</option>
+                                {get_personas.map((persona) => (
+                                    <option key={persona.id_persona} value={persona.id_persona}>{persona.nombre_1_persona} {persona.apellido_1_persona}</option>
                                 ))}
                             </select>
                         </div>

@@ -11,6 +11,7 @@ function Municipios(){
     const [departamentos, set_departamentos] = useState([]);
     const [municipios_por_departamento, set_municipios_por_departamento] = useState([]);
     const [id_departamento, set_id_departamento] = useState("");
+    const [personas, set_personas] = useState([]);
 
     const get_municipios = () => {
         api
@@ -36,6 +37,14 @@ function Municipios(){
             .catch((err) => alert(err));
     }
 
+    const get_personas = () => {
+        api
+            .get("/api/personas/")
+            .then((res) => res.data)
+            .then((data) => { set_personas(data), console.log("Personas", data) })
+            .catch((err) => alert(err));
+    }
+
     const delete_municipio = (id) => {
         api 
             .delete(`/api/municipios/delete/${id}/`)
@@ -56,6 +65,7 @@ function Municipios(){
     useEffect(() => {
         get_municipios();
         get_departamentos();
+        get_personas();
     }, []);
 
     return(
@@ -81,6 +91,7 @@ function Municipios(){
                             get_municipios={get_municipios}
                             deleteMunicipio={delete_municipio}
                             get_departamentos={departamentos} // Ensure get_departamentos is passed correctly
+                            get_personas={personas} // Pass get_personas to Municipio component
                         />
                     ))
                 }
