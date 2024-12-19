@@ -63,7 +63,6 @@ function Mascotas() {
                 </div>
             </div>
             <div className="mascotas-list">
-                <div className="mascotas-list-title">Lista de mascotas</div>
                 {
                     mascotas.map((mascota) => (
                         <Mascota
