@@ -9,3 +9,4 @@ pytz
 sqlparse
 psycopg2-binary
 python-dotenv
+print("DATABASE_URL:", os.getenv('DATABASE_URL'))

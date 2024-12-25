@@ -9,8 +9,13 @@ from .serializers import UserSerializer, PersonaSerializer, RegionSerializer, De
 from rest_framework.exceptions import ValidationError
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from .models import Persona, Region, Departamento, Municipio, Vivienda, Mascota, PersonaResideVivienda
+from django.http import HttpResponse
 
 # Create your views here.
+
+# Vista para la raíz
+def home(request):
+    return HttpResponse("Bienvenido a la API")
 
 ## Vista de PERSONA
 class PersonaListCreate(generics.ListCreateAPIView):
